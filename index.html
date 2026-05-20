@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<title>CheckCheckDoubleCheck — We checken de feiten</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="CheckCheckDoubleCheck verifieert documenten en transacties, en brengt alle partijen samen in één veilig dossier. Voor bedrijven en particulieren, in 31+ landen." />
+
+<link rel="stylesheet" href="styles.css" />
+<link rel="preload" href="fonts/DMSans-VariableFont_opsz_wght.ttf" as="font" type="font/ttf" crossorigin />
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand" aria-label="CheckCheckDoubleCheck home">
+      <img class="brand-mark" src="assets/ccdc-mark-inverse.svg" alt="" />
+      <span class="brand-name">
+        <span>checkcheck</span><span class="dot" aria-hidden="true"></span><span style="color: rgba(255,255,255,0.6); font-weight: 500;">doublecheck</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#producten" data-i18n="nav.products">Producten</a>
+      <a href="#principe" data-i18n="nav.how">Hoe het werkt</a>
+      <a href="#vertrouwen" data-i18n="nav.trust">Vertrouwen</a>
+      <div class="lang" role="group" aria-label="Taal">
+        <button data-lang="nl" class="is-active">NL</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="wrap hero-content">
+
+    <span class="eyebrow">
+      <span class="dot" aria-hidden="true"></span>
+      <span data-i18n="hero.eyebrow">Eén familie. Eén principe. Meerdere checks.</span>
+    </span>
+
+    <h1 class="hero-title">
+      <span class="stack" data-i18n="hero.line1">We checken de feiten,</span>
+      <span class="stack stack-2">
+        <span data-i18n="hero.line2_pre">zodat jij&nbsp;</span><span class="verb-slot" id="verbSlot"><em data-i18n="hero.verb_default">tekent</em><span class="verb-dot" aria-hidden="true"></span></span>
+      </span>
+    </h1>
+
+    <p class="hero-lead" data-i18n="hero.lead">
+      CheckCheckDoubleCheck verifieert documenten en transacties — van btw-nummers en IBANs tot handels­registers en sanctielijsten — en brengt alle partijen samen in één veilig, geverifieerd dossier. Geen losse kopieën, geen doorstuurketens, geen gevoelige documenten op de verkeerde plek.
+    </p>
+
+    <div class="hero-cta-row">
+      <a href="#producten" class="btn-pill btn-primary" data-i18n="hero.cta_primary">
+        Vind jouw check
+        <i data-lucide="arrow-down" style="width:18px;height:18px;"></i>
+      </a>
+      <a href="#principe" class="btn-pill btn-ghost" data-i18n="hero.cta_secondary">
+        Hoe het werkt
+      </a>
+    </div>
+
+    <div class="hero-fam" aria-label="CCDC familie">
+      <span class="hero-fam-label" data-i18n="hero.family_label">CCDC familie</span>
+      <ul class="hero-fam-list">
+        <li><span class="dot" aria-hidden="true"></span> CCDC Platform <span class="dom">app.checkccdc.com</span></li>
+        <li><span class="dot" aria-hidden="true"></span> CCDC Real Estate <span class="dom">ccdc.es</span></li>
+        <li style="opacity:0.45;"><span class="dot" style="background: rgba(255,255,255,0.3);" aria-hidden="true"></span> <span data-i18n="hero.family_more">Volgende verticals — in ontwikkeling</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section section-card">
+  <div class="wrap">
+    <div class="problem-grid">
+      <div class="reveal">
+        <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="problem.kicker">Het probleem</span></span>
+        <h2 class="section-title" data-i18n="problem.title">
+          Documenten slingeren overal rond. Niemand controleert ze.
+        </h2>
+        <p class="section-lead" data-i18n="problem.lead">
+          Een paspoort via WhatsApp. Een factuur per e-mail. Een btw-nummer in een Excel. Vijf kanalen, vier inboxen, drie versies — en uiteindelijk niemand die echt heeft gekeken of het klopt.
+        </p>
+      </div>
+
+      <div class="channel-rail reveal" aria-label="Voorbeelden van losse kanalen">
+        <div class="channel">
+          <span class="channel-from">whatsapp</span>
+          <span class="channel-doc" data-i18n="problem.r1_doc">Paspoort
+            <small data-i18n="problem.r1_sub">Foto, doorgestuurd in een groepschat</small>
+          </span>
+          <span class="channel-tag" data-i18n="problem.r1_tag">niet gecheckt</span>
+        </div>
+        <div class="channel">
+          <span class="channel-from">e-mail</span>
+          <span class="channel-doc" data-i18n="problem.r2_doc">Factuur · IBAN
+            <small data-i18n="problem.r2_sub">Bedrag overgenomen, IBAN niet geverifieerd</small>
+          </span>
+          <span class="channel-tag" data-i18n="problem.r2_tag">niet gecheckt</span>
+        </div>
+        <div class="channel">
+          <span class="channel-from">drive-map</span>
+          <span class="channel-doc" data-i18n="problem.r3_doc">Koopovereenkomst
+            <small data-i18n="problem.r3_sub">Drie versies — welke is de laatste?</small>
+          </span>
+          <span class="channel-tag" data-i18n="problem.r3_tag">niet gecheckt</span>
+        </div>
+        <div class="channel is-lost">
+          <span class="channel-from">post</span>
+          <span class="channel-doc" data-i18n="problem.r4_doc">Uittreksel handelsregister
+            <small data-i18n="problem.r4_sub">Op een bureau, twee weken oud</small>
+          </span>
+          <span class="channel-tag" data-i18n="problem.r4_tag">verlopen</span>
+        </div>
+        <div class="channel is-lost">
+          <span class="channel-from">whatsapp</span>
+          <span class="channel-doc" data-i18n="problem.r5_doc">Sanctielijst-check
+            <small data-i18n="problem.r5_sub">Iemand zou het doen — maar wie?</small>
+          </span>
+          <span class="channel-tag" data-i18n="problem.r5_tag">niemand</span>
+        </div>
+
+        <p class="channel-summary" data-i18n="problem.summary">
+          Het <strong>werkt</strong>, maar het kan eenvoudiger. En vooral: <strong>veiliger, controleerbaar en herbruikbaar</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPE / SOLUTION -->
+<section class="section section-navy" id="principe">
+  <div class="wrap">
+    <div class="principle">
+
+      <div class="reveal">
+        <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="solution.kicker">Het principe</span></span>
+        <h2 class="section-title" data-i18n="solution.title">
+          Eén geverifieerde plek. Jij bepaalt wie wat ziet.
+        </h2>
+        <p class="section-lead" data-i18n="solution.lead">
+          Wij verifiëren de feiten op de bron — bij het kadaster, de KvK, de BTW-database, de sanctielijst. We brengen het samen in één dossier waar elke partij precies dat ziet wat hij of zij moet zien. Niet meer.
+        </p>
+      </div>
+
+      <div class="principle-points reveal">
+
+        <div class="principle-point">
+          <span class="pp-label"><span class="num">01</span> <span data-i18n="solution.p1_label">Verifieerd aan de bron</span></span>
+          <h3 data-i18n="solution.p1_title">Niet alleen verzameld — gecheckt.</h3>
+          <p data-i18n="solution.p1_body">
+            Een btw-nummer wordt bij VIES gecontroleerd. Een IBAN tegen de bank. Een handelsregister­uittreksel tegen de KvK. Een sanctielijst tegen de EU. We laten niets ongezien.
+          </p>
+        </div>
+
+        <div class="principle-point">
+          <span class="pp-label"><span class="num">02</span> <span data-i18n="solution.p2_label">Eén dossier, alle partijen</span></span>
+          <h3 data-i18n="solution.p2_title">Iedereen op dezelfde pagina.</h3>
+          <p data-i18n="solution.p2_body">
+            Koper, verkoper, advocaten, makelaars, finance: ieder een eigen werkruimte op hetzelfde dossier. Privé-notities blijven privé. De feiten zijn voor iedereen hetzelfde.
+          </p>
+        </div>
+
+        <div class="principle-point">
+          <span class="pp-label"><span class="num">03</span> <span data-i18n="solution.p3_label">Bewaarplicht­waardig</span></span>
+          <h3 data-i18n="solution.p3_title">Een dossier dat blijft staan.</h3>
+          <p data-i18n="solution.p3_body">
+            Versies, ondertekenaars, audit trail. Wat we gecheckt hebben, wanneer, en op welk moment. Geschikt voor KYC, AML en de Nederlandse en Europese bewaarplicht.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section section-canvas" id="producten">
+  <div class="wrap">
+
+    <div class="reveal" style="max-width: 760px;">
+      <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="products.kicker">De producten</span></span>
+      <h2 class="section-title" data-i18n="products.title">
+        Dezelfde motor. Twee toepassingen. Eén familie.
+      </h2>
+      <p class="section-lead" data-i18n="products.lead">
+        Het brede platform doet check op btw-nummers, IBANs, contracten en koop­overeenkomsten — in 31+ landen, voor bedrijven en particulieren. Real Estate past hetzelfde principe toe op Spaanse vastgoed­transacties, met de specifieke documenten die daarbij horen: nota simple, NIE, ITP, encumbrances.
+      </p>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- PLATFORM -->
+      <article class="product-card reveal">
+        <span class="pc-family">
+          <img src="assets/ccdc-mark.svg" alt="" style="width:16px;height:16px;" />
+          <span data-i18n="products.family_label">CCDC Familie</span>
+        </span>
+
+        <h3 class="pc-name">CCDC <span class="ccdc-grad">Platform</span></h3>
+        <p class="pc-tag" data-i18n="products.platform_tag">Het brede verificatieplatform.</p>
+
+        <span class="pc-domain">
+          <i data-lucide="globe" aria-hidden="true"></i>
+          app.checkccdc.com
+        </span>
+
+        <div class="pc-body">
+          <p data-i18n="products.platform_body1">
+            Drop een factuur, contract of koopovereenkomst. In seconden krijg je een vertrouwens­score. Wij checken de partijen, de bedragen, de IBANs en de bevoegdheden.
+          </p>
+          <p data-i18n="products.platform_body2">
+            Werkt in 31+ landen. Voor bedrijven (KYC/AML, bewaarplicht). En voor particulieren bij een grote aankoop — de eerste check is gratis, geen kennis vereist.
+          </p>
+        </div>
+
+        <ul class="pc-list">
+          <li data-i18n="products.platform_l1"><strong>Voor bedrijven:</strong> KYC, AML-compliance, geverifieerd dossier voor de bewaarplicht.</li>
+          <li data-i18n="products.platform_l2"><strong>Voor particulieren:</strong> eerste check gratis, geen kennis nodig.</li>
+          <li data-i18n="products.platform_l3"><strong>Werkingsgebied:</strong> 31+ landen.</li>
+        </ul>
+
+        <div class="pc-cta-row">
+          <a href="https://app.checkccdc.com" class="btn-pill btn-dark" data-i18n="products.platform_cta">
+            Open het platform
+            <i data-lucide="arrow-up-right" style="width:18px;height:18px;"></i>
+          </a>
+          <a href="https://app.checkccdc.com/voor-particulieren" class="btn-link" data-i18n="products.platform_cta_secondary">
+            Eerste check (gratis)
+            <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- REAL ESTATE -->
+      <article class="product-card reveal">
+        <span class="pc-family">
+          <img src="assets/ccdc-mark.svg" alt="" style="width:16px;height:16px;" />
+          <span data-i18n="products.family_label_re">CCDC Familie · Specialisatie</span>
+        </span>
+
+        <h3 class="pc-name">CCDC <span class="ccdc-grad">Real Estate</span></h3>
+        <p class="pc-tag" data-i18n="products.re_tag">Spaans vastgoed, één dossier van bod tot escritura.</p>
+
+        <span class="pc-domain">
+          <i data-lucide="globe" aria-hidden="true"></i>
+          ccdc.es
+        </span>
+
+        <div class="pc-body">
+          <p data-i18n="products.re_body1">
+            Dezelfde motor, toegespitst op één sector. Eén dossier waarin makelaar, koper, verkoper en beide advocaten samenwerken — van eerste bod tot escritura.
+          </p>
+          <p data-i18n="products.re_body2">
+            We verifiëren wat een Spaanse transactie nodig heeft: nota simple, NIE, ITP-afdracht, lasten en hypotheek­inschrijvingen. Geen verrassingen bij de notaris.
+          </p>
+        </div>
+
+        <ul class="pc-list">
+          <li data-i18n="products.re_l1"><strong>Voor wie:</strong> makelaars, kopers, verkopers en hun advocaten.</li>
+          <li data-i18n="products.re_l2"><strong>Wat we checken:</strong> nota simple, NIE, ITP, encumbrances.</li>
+          <li data-i18n="products.re_l3"><strong>Pilot:</strong> Andalusië, 2026.</li>
+        </ul>
+
+        <div class="pc-cta-row">
+          <a href="https://ccdc.es" class="btn-pill btn-dark" data-i18n="products.re_cta">
+            Bekijk Real Estate
+            <i data-lucide="arrow-up-right" style="width:18px;height:18px;"></i>
+          </a>
+          <a href="https://ccdc.es/voor-makelaars" class="btn-link" data-i18n="products.re_cta_secondary">
+            Voor makelaars
+            <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- "Same engine" reassurance band -->
+    <div class="engine-band reveal">
+      <span class="eb-icon"><i data-lucide="git-branch" style="width:20px;height:20px;"></i></span>
+      <p class="eb-text" data-i18n="products.engine_note">
+        <strong>Twee domeinen, één motor.</strong> Real Estate is de eerste verticale toepassing van het platform — gehost op een eigen .es-domein zodat Spaanse partijen zich er thuis voelen. Dezelfde verificatie-engine, dezelfde audit trail, dezelfde EU-hosting.
+      </p>
+      <span class="eb-domains">
+        <span>checkccdc.com</span>
+        <span class="plus">+</span>
+        <span>ccdc.es</span>
+      </span>
+    </div>
+
+    <!-- FUTURE VERTICAL SLOTS -->
+    <div class="products-grid" style="margin-top: 18px; grid-template-columns: 1fr 1fr;">
+      <article class="product-card is-future reveal">
+        <div class="future-slot">
+          <span class="future-line">
+            <span class="plus" aria-hidden="true">+</span>
+            <span data-i18n="products.future_label">Volgende vertical</span>
+          </span>
+          <h3 data-i18n="products.future_title">Welke sector vraagt erom?</h3>
+          <p data-i18n="products.future_body">
+            Het model is uitbreidbaar. Telkens wanneer een sector een eigen set documenten, regelgeving en partijen heeft, kan CCDC daar een eigen toepassing van maken. Heb je er een in gedachten?
+          </p>
+          <a href="mailto:hello@checkccdc.com" class="future-link" data-i18n="products.future_cta">
+            Praat met ons
+            <i data-lucide="arrow-right" style="width:13px;height:13px;"></i>
+          </a>
+        </div>
+      </article>
+
+      <article class="product-card is-future reveal" style="opacity: 0.55;">
+        <div class="future-slot">
+          <span class="future-line">
+            <span class="plus" aria-hidden="true">·</span>
+            <span data-i18n="products.empty_label">Ruimte voor groei</span>
+          </span>
+          <h3 style="color: var(--text-tertiary);" data-i18n="products.empty_title">Hier komt het volgende.</h3>
+          <p data-i18n="products.empty_body">
+            We voegen niets toe voordat we het volledig waar kunnen maken. Nieuwe verticals worden hier aangekondigd zodra ze in pilot zijn.
+          </p>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRUST / COMPLIANCE -->
+<section class="section section-card" id="vertrouwen">
+  <div class="wrap">
+
+    <div class="reveal" style="max-width: 760px;">
+      <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="trust.kicker">Vertrouwen &amp; compliance</span></span>
+      <h2 class="section-title" data-i18n="trust.title">
+        Eerlijk, controleerbaar, in de EU.
+      </h2>
+      <p class="section-lead" data-i18n="trust.lead">
+        We bouwen iets dat juristen en compliance-officers vertrouwen — én dat een particulier in tien seconden begrijpt. Wat we wél en níet hebben, vertellen we eerlijk.
+      </p>
+    </div>
+
+    <div class="trust-grid reveal">
+      <div class="trust-cell">
+        <div class="trust-icon"><i data-lucide="shield-check" aria-hidden="true"></i></div>
+        <h4><span class="dot" aria-hidden="true"></span> <span data-i18n="trust.t1_title">EU-hosting</span></h4>
+        <p data-i18n="trust.t1_body">Gehost in Duitsland (Hetzner Falkenstein). Data verlaat de Europese Unie niet. GDPR-compliant.</p>
+      </div>
+      <div class="trust-cell">
+        <div class="trust-icon"><i data-lucide="lock" aria-hidden="true"></i></div>
+        <h4><span class="dot" aria-hidden="true"></span> <span data-i18n="trust.t2_title">Versleuteld</span></h4>
+        <p data-i18n="trust.t2_body">AES-256 op rust, TLS 1.3 op transport. Rol­gebaseerde toegang per partij. Privé-notities blijven privé.</p>
+      </div>
+      <div class="trust-cell">
+        <div class="trust-icon"><i data-lucide="badge-check" aria-hidden="true"></i></div>
+        <h4><span class="dot" aria-hidden="true"></span> <span data-i18n="trust.t3_title">Verifieerd aan de bron</span></h4>
+        <p data-i18n="trust.t3_body">Wij vertrouwen niet op kopieën. We checken bij KvK, VIES, kadaster, sanctielijst — daar waar het écht staat.</p>
+      </div>
+      <div class="trust-cell">
+        <div class="trust-icon"><i data-lucide="file-clock" aria-hidden="true"></i></div>
+        <h4><span class="dot" aria-hidden="true"></span> <span data-i18n="trust.t4_title">Bewaarplicht­waardig</span></h4>
+        <p data-i18n="trust.t4_body">Volledige audit trail. Versies, ondertekenaars, momenten. Klaar voor KYC, AML en de bewaarplicht.</p>
+      </div>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 13.5px; color: var(--text-tertiary); display: inline-flex; align-items: center; gap: 8px;" data-i18n="trust.honest_note">
+      <i data-lucide="message-square-quote" style="width:14px;height:14px;color:var(--ccdc-magenta);"></i>
+      Wat we nog níet hebben (zoals ISO 27001) staat letterlijk op onze beveiligings­pagina. Eerlijkheid boven polish.
+    </p>
+
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="closing">
+  <div class="wrap">
+    <h2 data-i18n="closing.title">Welke check past bij jou?</h2>
+    <p class="closing-lead" data-i18n="closing.lead">
+      Twee deuren naar dezelfde motor. Kies de toepassing die bij jouw situatie past.
+    </p>
+
+    <div class="closing-cards">
+      <a href="https://app.checkccdc.com" class="closing-card">
+        <span class="cc-label" data-i18n="closing.card1_label">Brede check</span>
+        <span class="cc-title">CCDC Platform</span>
+        <span class="cc-dom">app.checkccdc.com</span>
+        <span class="cc-desc" data-i18n="closing.card1_desc">
+          Voor bedrijven en particulieren. Facturen, contracten, koop­overeen­komsten. 31+ landen.
+        </span>
+        <span class="cc-go" data-i18n="closing.card1_cta">
+          Open het platform
+          <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i>
+        </span>
+      </a>
+      <a href="https://ccdc.es" class="closing-card">
+        <span class="cc-label" data-i18n="closing.card2_label">Vastgoed in Spanje</span>
+        <span class="cc-title">CCDC Real Estate</span>
+        <span class="cc-dom">ccdc.es</span>
+        <span class="cc-desc" data-i18n="closing.card2_desc">
+          Andalusië-pilot 2026. Eén dossier van bod tot escritura. Voor alle partijen.
+        </span>
+        <span class="cc-go" data-i18n="closing.card2_cta">
+          Bekijk Real Estate
+          <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <img class="brand-mark" src="assets/ccdc-mark-inverse.svg" alt="" style="width:24px;height:24px;" />
+        <span class="brand-name">
+          <span style="color:#fff;">checkcheck</span><span class="dot" style="background:var(--ccdc-magenta-on-dark); width:4px; height:4px; border-radius:999px; display:inline-block; margin: 0 1px;" aria-hidden="true"></span><span style="color: rgba(255,255,255,0.6);">doublecheck</span>
+        </span>
+      </div>
+
+      <div class="foot-links">
+        <a href="https://app.checkccdc.com">CCDC Platform</a>
+        <a href="https://ccdc.es">CCDC Real Estate</a>
+        <a href="#vertrouwen" data-i18n="foot.security">Beveiliging</a>
+        <a href="#" data-i18n="foot.privacy">Privacy</a>
+        <a href="mailto:hello@checkccdc.com">hello@checkccdc.com</a>
+      </div>
+    </div>
+
+    <p class="foot-meta">
+      checkcheckdoublecheck.com<span class="dot" aria-hidden="true"></span>
+      <span data-i18n="foot.meta">een Nederlands bedrijf · gehost in de EU · © 2026</span>
+    </p>
+  </div>
+</footer>
+
+<!-- PAGE SCRIPTS -->
+<script>
+  // Lucide icons
+  if (window.lucide) window.lucide.createIcons();
+
+  // Nav scroll
+  (function () {
+    var nav = document.getElementById('nav');
+    var onScroll = function () {
+      if (window.scrollY > 32) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // Scroll reveal
+  (function () {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  })();
+
+  // I18N strings
+  var I18N = {
+    en: {
+      'nav.products': 'Products',
+      'nav.how': 'How it works',
+      'nav.trust': 'Trust',
+      'hero.eyebrow': 'One family. One principle. Multiple checks.',
+      'hero.line1': 'We check the facts,',
+      'hero.line2_pre': 'so you can\u00a0',
+      'hero.verb_default': 'sign',
+      'hero.lead': 'CheckCheckDoubleCheck verifies documents and transactions \u2014 from VAT numbers and IBANs to trade registers and sanctions lists \u2014 and brings every party together into one secure, verified dossier. No loose copies, no forwarding chains, no sensitive documents in the wrong place.',
+      'hero.cta_primary': 'Find your check',
+      'hero.cta_secondary': 'How it works',
+      'hero.family_label': 'CCDC family',
+      'hero.family_more': 'Next verticals \u2014 in development',
+      'problem.kicker': 'The problem',
+      'problem.title': 'Documents scattered everywhere. Nobody actually checks them.',
+      'problem.lead': 'A passport on WhatsApp. An invoice by email. A VAT number in a spreadsheet. Five channels, four inboxes, three versions \u2014 and in the end nobody really looked at whether it adds up.',
+      'problem.r1_doc': 'Passport',
+      'problem.r1_sub': 'Photo, forwarded in a group chat',
+      'problem.r1_tag': 'not checked',
+      'problem.r2_doc': 'Invoice \u00b7 IBAN',
+      'problem.r2_sub': 'Amount copied, IBAN unverified',
+      'problem.r2_tag': 'not checked',
+      'problem.r3_doc': 'Purchase agreement',
+      'problem.r3_sub': 'Three versions \u2014 which is the final one?',
+      'problem.r3_tag': 'not checked',
+      'problem.r4_doc': 'Trade register extract',
+      'problem.r4_sub': 'On a desk, two weeks old',
+      'problem.r4_tag': 'expired',
+      'problem.r5_doc': 'Sanctions screening',
+      'problem.r5_sub': 'Someone was supposed to do it \u2014 who?',
+      'problem.r5_tag': 'nobody',
+      'problem.summary': 'It <strong>works</strong>, but it could be easier. And, above all: <strong>safer, auditable, reusable</strong>.',
+      'solution.kicker': 'The principle',
+      'solution.title': 'One verified place. You decide who sees what.',
+      'solution.lead': 'We verify the facts at the source \u2014 at the land registry, the chamber of commerce, the VAT database, the sanctions list. We bring it together in one dossier where each party sees exactly what they need to see. Nothing more.',
+      'solution.p1_label': 'Verified at the source',
+      'solution.p1_title': 'Not just collected \u2014 checked.',
+      'solution.p1_body': 'A VAT number is checked against VIES. An IBAN against the bank. A trade register extract against the chamber. A name against the EU sanctions list. We leave nothing unseen.',
+      'solution.p2_label': 'One dossier, every party',
+      'solution.p2_title': 'Everyone on the same page.',
+      'solution.p2_body': 'Buyer, seller, lawyers, agents, finance: each with their own workspace on the same dossier. Private notes stay private. The facts are the same for everyone.',
+      'solution.p3_label': 'Audit-ready',
+      'solution.p3_title': 'A dossier that holds up.',
+      'solution.p3_body': 'Versions, signatories, audit trail. What we checked, when, and at what moment. Fits Dutch and EU retention requirements, KYC and AML.',
+      'products.kicker': 'The products',
+      'products.title': 'Same engine. Two applications. One family.',
+      'products.lead': 'The broad platform checks VAT numbers, IBANs, contracts and purchase agreements \u2014 in 31+ countries, for businesses and individuals. Real Estate applies the same principle to Spanish property transactions, with the specific documents that come with them: nota simple, NIE, ITP, encumbrances.',
+      'products.family_label': 'CCDC family',
+      'products.family_label_re': 'CCDC family \u00b7 Specialisation',
+      'products.platform_tag': 'The broad verification platform.',
+      'products.platform_body1': 'Drop an invoice, a contract or a purchase agreement. In seconds you get a trust score. We check the parties, the amounts, the IBANs and the signing authority.',
+      'products.platform_body2': 'Works in 31+ countries. For businesses (KYC/AML, audit). And for individuals making a large purchase \u2014 the first check is free, no expertise required.',
+      'products.platform_l1': '<strong>For businesses:</strong> KYC, AML compliance, verified dossier for retention.',
+      'products.platform_l2': '<strong>For individuals:</strong> first check free, no expertise required.',
+      'products.platform_l3': '<strong>Coverage:</strong> 31+ countries.',
+      'products.platform_cta': 'Open the platform',
+      'products.platform_cta_secondary': 'First check (free)',
+      'products.re_tag': 'Spanish real estate, one dossier from offer to escritura.',
+      'products.re_body1': 'Same engine, focused on one sector. One dossier in which agent, buyer, seller and both lawyers work together \u2014 from the first offer to escritura.',
+      'products.re_body2': 'We verify what a Spanish transaction needs: nota simple, NIE, ITP, encumbrances and mortgage entries. No surprises at the notary.',
+      'products.re_l1': '<strong>Who it is for:</strong> agents, buyers, sellers and their lawyers.',
+      'products.re_l2': '<strong>What we verify:</strong> nota simple, NIE, ITP, encumbrances.',
+      'products.re_l3': '<strong>Pilot:</strong> Andalusia, 2026.',
+      'products.re_cta': 'Visit Real Estate',
+      'products.re_cta_secondary': 'For agents',
+      'products.engine_note': '<strong>Two domains, one engine.</strong> Real Estate is the first vertical application of the platform \u2014 hosted on its own .es domain so Spanish parties feel at home. Same verification engine, same audit trail, same EU hosting.',
+      'products.future_label': 'Next vertical',
+      'products.future_title': 'Which sector calls for it?',
+      'products.future_body': 'The model is extensible. Whenever a sector has its own set of documents, regulation and parties, CCDC can be tailored to it. Got one in mind?',
+      'products.future_cta': 'Talk to us',
+      'products.empty_label': 'Room to grow',
+      'products.empty_title': "What's next goes here.",
+      'products.empty_body': "We don't add anything until we can fully deliver on it. New verticals show up here once they're in pilot.",
+      'trust.kicker': 'Trust & compliance',
+      'trust.title': 'Honest, auditable, in the EU.',
+      'trust.lead': "We're building something lawyers and compliance officers trust \u2014 and that an individual understands in ten seconds. What we do and don't have, we tell you straight.",
+      'trust.t1_title': 'EU hosting',
+      'trust.t1_body': "Hosted in Germany (Hetzner Falkenstein). Data doesn't leave the EU. GDPR-compliant.",
+      'trust.t2_title': 'Encrypted',
+      'trust.t2_body': 'AES-256 at rest, TLS 1.3 in transit. Role-based access per party. Private notes stay private.',
+      'trust.t3_title': 'Verified at the source',
+      'trust.t3_body': "We don't trust copies. We check against the chamber, VIES, the land registry, the sanctions list \u2014 wherever it actually lives.",
+      'trust.t4_title': 'Audit-ready',
+      'trust.t4_body': 'Full audit trail. Versions, signatories, timestamps. Fits KYC, AML and retention requirements.',
+      'trust.honest_note': "What we don't have yet (such as ISO 27001) is listed on our security page, in plain language. Honesty over polish.",
+      'closing.title': 'Which check is yours?',
+      'closing.lead': 'Two doors to the same engine. Pick the application that fits your situation.',
+      'closing.card1_label': 'Broad check',
+      'closing.card1_desc': 'For businesses and individuals. Invoices, contracts, purchase agreements. 31+ countries.',
+      'closing.card1_cta': 'Open the platform',
+      'closing.card2_label': 'Real estate in Spain',
+      'closing.card2_desc': 'Andalusia pilot 2026. One dossier from offer to escritura. For every party.',
+      'closing.card2_cta': 'Visit Real Estate',
+      'foot.security': 'Security',
+      'foot.privacy': 'Privacy',
+      'foot.meta': 'a Dutch company \u00b7 hosted in the EU \u00b7 \u00a9 2026'
+    }
+  };
+
+  // Cache NL strings from the DOM
+  var NL_SNAPSHOT = {};
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var key = el.dataset.i18n;
+    var idx = Array.from(document.querySelectorAll('[data-i18n="' + key + '"]')).indexOf(el);
+    NL_SNAPSHOT[key + '|' + idx] = el.innerHTML;
+  });
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.dataset.i18n;
+      if (lang === 'nl') {
+        var all = document.querySelectorAll('[data-i18n="' + key + '"]');
+        var idx = Array.from(all).indexOf(el);
+        var snap = NL_SNAPSHOT[key + '|' + idx];
+        if (snap !== undefined) el.innerHTML = snap;
+      } else if (I18N[lang] && I18N[lang][key] !== undefined) {
+        el.innerHTML = I18N[lang][key];
+      }
+    });
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.classList.toggle('is-active', b.dataset.lang === lang);
+    });
+    if (window.lucide) window.lucide.createIcons();
+    window.__currentLang = lang;
+    resetVerbCycle();
+  }
+
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () { applyLang(b.dataset.lang); });
+  });
+  window.__currentLang = 'nl';
+
+  // Cycling verb in the hero
+  var VERBS = {
+    nl: ['tekent', 'koopt', 'onderneemt', 'investeert', 'vertrouwt', 'doorgaat'],
+    en: ['sign',   'buy',   'scale',     'invest',     'trust',     'move on']
+  };
+  var verbIdx = 0;
+  var verbTimer = null;
+
+  function tickVerb() {
+    var slot = document.getElementById('verbSlot');
+    if (!slot) return;
+    var em = slot.querySelector('em');
+    if (!em) return;
+    slot.classList.add('is-fading');
+    setTimeout(function () {
+      verbIdx = (verbIdx + 1) % VERBS[window.__currentLang].length;
+      em.textContent = VERBS[window.__currentLang][verbIdx];
+      slot.classList.remove('is-fading');
+    }, 280);
+  }
+
+  function startVerbCycle() {
+    stopVerbCycle();
+    verbTimer = setInterval(tickVerb, 1900);
+  }
+
+  function stopVerbCycle() {
+    if (verbTimer) { clearInterval(verbTimer); verbTimer = null; }
+  }
+
+  function resetVerbCycle() {
+    var slot = document.getElementById('verbSlot');
+    if (!slot) return;
+    verbIdx = 0;
+    slot.querySelector('em').textContent = VERBS[window.__currentLang][0];
+    startVerbCycle();
+  }
+
+  startVerbCycle();
+</script>
+
+</body>
+</html>
