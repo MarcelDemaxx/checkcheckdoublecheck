@@ -1,0 +1,10 @@
+node_modules
+.git
+data
+config.json
+.env
+*.tmp
+*.log
+npm-debug.log*
+.DS_Store
+deploy

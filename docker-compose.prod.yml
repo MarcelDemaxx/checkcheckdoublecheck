@@ -1,0 +1,35 @@
+# Standalone deploy for the HomeCare scope-check, separate from the CCDC stack.
+# Joins the existing Traefik network (ccdc_ccdc) so Traefik routes + terminates
+# TLS for checkcheckdoublecheck.com. Tokens come from .env (never committed).
+#
+#   docker compose -f docker-compose.prod.yml up -d --build
+#
+services:
+  app:
+    build: .
+    image: scopecheck:latest
+    container_name: scopecheck-prod
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=8090
+      - PUBLIC_BASE_URL=https://checkcheckdoublecheck.com
+      - ADMIN_TOKEN=${ADMIN_TOKEN}
+      - KIAN_TOKEN=${KIAN_TOKEN}
+      - SANTI_TOKEN=${SANTI_TOKEN}
+    volumes:
+      # Persist submitted answers on the host across restarts/rebuilds
+      - ./data:/app/data
+    networks:
+      - ccdc_ccdc
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=ccdc_ccdc
+      - traefik.http.routers.scopecheck.rule=Host(`checkcheckdoublecheck.com`) || Host(`www.checkcheckdoublecheck.com`)
+      - traefik.http.routers.scopecheck.entrypoints=websecure
+      - traefik.http.routers.scopecheck.tls.certresolver=le
+      - traefik.http.services.scopecheck.loadbalancer.server.port=8090
+
+networks:
+  ccdc_ccdc:
+    external: true

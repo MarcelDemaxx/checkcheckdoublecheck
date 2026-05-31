@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="nl">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>CheckCheckDoubleCheck — We checken de feiten</title>
+<title>A helping hand, from idea to realisation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="CheckCheckDoubleCheck verifieert documenten en transacties, en brengt alle partijen samen in één veilig dossier. Voor bedrijven en particulieren, in 31+ landen." />
+<meta name="description" content="A personal hub of an entrepreneur who helps other entrepreneurs and initiatives go from idea to realisation; by building, by backing, and by coaching." />
 
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="hub.css" />
 <link rel="preload" href="fonts/DMSans-VariableFont_opsz_wght.ttf" as="font" type="font/ttf" crossorigin />
 <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -16,19 +17,17 @@
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="#top" class="brand" aria-label="CheckCheckDoubleCheck home">
-      <img class="brand-mark" src="assets/ccdc-mark-inverse.svg" alt="" />
-      <span class="brand-name">
-        <span>checkcheck</span><span class="dot" aria-hidden="true"></span><span style="color: rgba(255,255,255,0.6); font-weight: 500;">doublecheck</span>
-      </span>
+    <a href="#top" class="brand" aria-label="Home">
+      <span class="brand-dot" aria-hidden="true"></span>
     </a>
     <div class="nav-links">
-      <a href="#producten" data-i18n="nav.products">Producten</a>
-      <a href="#principe" data-i18n="nav.how">Hoe het werkt</a>
-      <a href="#vertrouwen" data-i18n="nav.trust">Vertrouwen</a>
-      <div class="lang" role="group" aria-label="Taal">
-        <button data-lang="nl" class="is-active">NL</button>
-        <button data-lang="en">EN</button>
+      <a href="#what" data-i18n="nav.what">What we do</a>
+      <a href="#how" data-i18n="nav.how">How we work</a>
+      <a href="#work" data-i18n="nav.work">The work</a>
+      <a href="#contact" data-i18n="nav.talk">Let's talk</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="en" class="is-active">EN</button>
+        <button data-lang="nl">NL</button>
       </div>
     </div>
   </div>
@@ -41,139 +40,79 @@
 
     <span class="eyebrow">
       <span class="dot" aria-hidden="true"></span>
-      <span data-i18n="hero.eyebrow">Eén familie. Eén principe. Meerdere checks.</span>
+      <span data-i18n="hero.eyebrow">A helping hand, from idea to realisation</span>
     </span>
 
-    <h1 class="hero-title">
-      <span class="stack" data-i18n="hero.line1">We checken de feiten,</span>
-      <span class="stack stack-2">
-        <span data-i18n="hero.line2_pre">zodat jij&nbsp;</span><span class="verb-slot" id="verbSlot"><em data-i18n="hero.verb_default">tekent</em><span class="verb-dot" aria-hidden="true"></span></span>
+    <h1 class="hero-title" id="oneliner">
+      <span class="line">
+        <span data-i18n="hero.we">We&nbsp;</span><span class="fill" id="fillA"><em>help the builders</em></span>
+      </span>
+      <span class="line line-2">
+        <span data-i18n="hero.so">so you can&nbsp;</span><span class="fill" id="fillB"><em>build</em></span><span class="verb-dot" aria-hidden="true"></span>
       </span>
     </h1>
 
     <p class="hero-lead" data-i18n="hero.lead">
-      CheckCheckDoubleCheck verifieert documenten en transacties — van btw-nummers en IBANs tot handels­registers en sanctielijsten — en brengt alle partijen samen in één veilig, geverifieerd dossier. Geen losse kopieën, geen doorstuurketens, geen gevoelige documenten op de verkeerde plek.
+      We help other people's ideas become real. Some we build ourselves. Others we back with money and time. And some founders just need someone in the room who has done it before, sitting next to them until the thing is actually finished.
     </p>
 
-    <div class="hero-cta-row">
-      <a href="#producten" class="btn-pill btn-primary" data-i18n="hero.cta_primary">
-        Vind jouw check
-        <i data-lucide="arrow-down" style="width:18px;height:18px;"></i>
-      </a>
-      <a href="#principe" class="btn-pill btn-ghost" data-i18n="hero.cta_secondary">
-        Hoe het werkt
-      </a>
-    </div>
-
-    <div class="hero-fam" aria-label="CCDC familie">
-      <span class="hero-fam-label" data-i18n="hero.family_label">CCDC familie</span>
-      <ul class="hero-fam-list">
-        <li><span class="dot" aria-hidden="true"></span> CCDC Platform <span class="dom">app.checkccdc.com</span></li>
-        <li><span class="dot" aria-hidden="true"></span> CCDC Real Estate <span class="dom">ccdc.es</span></li>
-        <li style="opacity:0.45;"><span class="dot" style="background: rgba(255,255,255,0.3);" aria-hidden="true"></span> <span data-i18n="hero.family_more">Volgende verticals — in ontwikkeling</span></li>
+    <div class="hero-now" aria-label="Currently">
+      <span class="hero-now-label" data-i18n="hero.now_label">Currently</span>
+      <ul class="hero-now-list">
+        <li><span class="dot" aria-hidden="true"></span> CCDC</li>
+        <li><span class="dot" aria-hidden="true"></span> CCDC Real Estate</li>
+        <li><span class="dot" aria-hidden="true"></span> onlineCIO</li>
+        <li><span class="dot" aria-hidden="true"></span> thnx</li>
+        <li><span class="dot" aria-hidden="true"></span> In and Out</li>
+        <li><span class="dot" aria-hidden="true"></span> BiedadviesApp</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-<!-- PROBLEM -->
-<section class="section section-card">
+<!-- WHAT WE DO -->
+<section class="section section-card" id="what">
   <div class="wrap">
-    <div class="problem-grid">
-      <div class="reveal">
-        <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="problem.kicker">Het probleem</span></span>
-        <h2 class="section-title" data-i18n="problem.title">
-          Documenten slingeren overal rond. Niemand controleert ze.
-        </h2>
-        <p class="section-lead" data-i18n="problem.lead">
-          Een paspoort via WhatsApp. Een factuur per e-mail. Een btw-nummer in een Excel. Vijf kanalen, vier inboxen, drie versies — en uiteindelijk niemand die echt heeft gekeken of het klopt.
-        </p>
-      </div>
-
-      <div class="channel-rail reveal" aria-label="Voorbeelden van losse kanalen">
-        <div class="channel">
-          <span class="channel-from">whatsapp</span>
-          <span class="channel-doc" data-i18n="problem.r1_doc">Paspoort
-            <small data-i18n="problem.r1_sub">Foto, doorgestuurd in een groepschat</small>
-          </span>
-          <span class="channel-tag" data-i18n="problem.r1_tag">niet gecheckt</span>
-        </div>
-        <div class="channel">
-          <span class="channel-from">e-mail</span>
-          <span class="channel-doc" data-i18n="problem.r2_doc">Factuur · IBAN
-            <small data-i18n="problem.r2_sub">Bedrag overgenomen, IBAN niet geverifieerd</small>
-          </span>
-          <span class="channel-tag" data-i18n="problem.r2_tag">niet gecheckt</span>
-        </div>
-        <div class="channel">
-          <span class="channel-from">drive-map</span>
-          <span class="channel-doc" data-i18n="problem.r3_doc">Koopovereenkomst
-            <small data-i18n="problem.r3_sub">Drie versies — welke is de laatste?</small>
-          </span>
-          <span class="channel-tag" data-i18n="problem.r3_tag">niet gecheckt</span>
-        </div>
-        <div class="channel is-lost">
-          <span class="channel-from">post</span>
-          <span class="channel-doc" data-i18n="problem.r4_doc">Uittreksel handelsregister
-            <small data-i18n="problem.r4_sub">Op een bureau, twee weken oud</small>
-          </span>
-          <span class="channel-tag" data-i18n="problem.r4_tag">verlopen</span>
-        </div>
-        <div class="channel is-lost">
-          <span class="channel-from">whatsapp</span>
-          <span class="channel-doc" data-i18n="problem.r5_doc">Sanctielijst-check
-            <small data-i18n="problem.r5_sub">Iemand zou het doen — maar wie?</small>
-          </span>
-          <span class="channel-tag" data-i18n="problem.r5_tag">niemand</span>
-        </div>
-
-        <p class="channel-summary" data-i18n="problem.summary">
-          Het <strong>werkt</strong>, maar het kan eenvoudiger. En vooral: <strong>veiliger, controleerbaar en herbruikbaar</strong>.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRINCIPE / SOLUTION -->
-<section class="section section-navy" id="principe">
-  <div class="wrap">
-    <div class="principle">
+    <div class="roles">
 
       <div class="reveal">
-        <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="solution.kicker">Het principe</span></span>
-        <h2 class="section-title" data-i18n="solution.title">
-          Eén geverifieerde plek. Jij bepaalt wie wat ziet.
+        <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="what.kicker">What we do</span></span>
+        <h2 class="section-title" data-i18n="what.title">
+          We help good ideas become real things.
         </h2>
-        <p class="section-lead" data-i18n="solution.lead">
-          Wij verifiëren de feiten op de bron — bij het kadaster, de KvK, de BTW-database, de sanctielijst. We brengen het samen in één dossier waar elke partij precies dat ziet wat hij of zij moet zien. Niet meer.
+        <p class="section-lead" data-i18n="what.lead">
+          Most ideas die somewhere between the first sketch and the day they have to stand on their own. That gap is where we are useful. Sometimes we are the ones building; sometimes the idea is yours and we are simply there to help it across.
+        </p>
+        <p class="roles-coda" data-i18n="what.coda">
+          <span class="dot" aria-hidden="true"></span>
+          One helping hand, the whole way from idea to the thing actually working.
         </p>
       </div>
 
-      <div class="principle-points reveal">
+      <div class="roles-rail reveal">
 
-        <div class="principle-point">
-          <span class="pp-label"><span class="num">01</span> <span data-i18n="solution.p1_label">Verifieerd aan de bron</span></span>
-          <h3 data-i18n="solution.p1_title">Niet alleen verzameld — gecheckt.</h3>
-          <p data-i18n="solution.p1_body">
-            Een btw-nummer wordt bij VIES gecontroleerd. Een IBAN tegen de bank. Een handelsregister­uittreksel tegen de KvK. Een sanctielijst tegen de EU. We laten niets ongezien.
+        <div class="role">
+          <span class="role-label"><span class="num">01</span> <span data-i18n="what.r1_label">Build</span></span>
+          <h3 data-i18n="what.r1_title">Some ideas we take on <span class="accent">ourselves</span>.</h3>
+          <p data-i18n="what.r1_body">
+            We start the company, ship the product, and run it until it can stand without us. The projects below are ours, or partly ours, and most of them are still being built right now.
           </p>
         </div>
 
-        <div class="principle-point">
-          <span class="pp-label"><span class="num">02</span> <span data-i18n="solution.p2_label">Eén dossier, alle partijen</span></span>
-          <h3 data-i18n="solution.p2_title">Iedereen op dezelfde pagina.</h3>
-          <p data-i18n="solution.p2_body">
-            Koper, verkoper, advocaten, makelaars, finance: ieder een eigen werkruimte op hetzelfde dossier. Privé-notities blijven privé. De feiten zijn voor iedereen hetzelfde.
+        <div class="role">
+          <span class="role-label"><span class="num">02</span> <span data-i18n="what.r2_label">Back</span></span>
+          <h3 data-i18n="what.r2_title">Some ideas belong to <span class="accent">someone else</span>.</h3>
+          <p data-i18n="what.r2_body">
+            We put in money, time and the scars of having done it before, and we stay involved where that actually helps. Not a name on a cap table; someone you can call when something breaks.
           </p>
         </div>
 
-        <div class="principle-point">
-          <span class="pp-label"><span class="num">03</span> <span data-i18n="solution.p3_label">Bewaarplicht­waardig</span></span>
-          <h3 data-i18n="solution.p3_title">Een dossier dat blijft staan.</h3>
-          <p data-i18n="solution.p3_body">
-            Versies, ondertekenaars, audit trail. Wat we gecheckt hebben, wanneer, en op welk moment. Geschikt voor KYC, AML en de Nederlandse en Europese bewaarplicht.
+        <div class="role">
+          <span class="role-label"><span class="num">03</span> <span data-i18n="what.r3_label">Coach</span></span>
+          <h3 data-i18n="what.r3_title">Some founders just need a <span class="accent">hand</span>.</h3>
+          <p data-i18n="what.r3_body">
+            So we sit next to them, week after week, on the real decisions and the boring ones, until the plan turns into something that holds up. No reports, no theatre; just the work.
           </p>
         </div>
 
@@ -183,236 +122,148 @@
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="section section-canvas" id="producten">
+<!-- HOW WE WORK -->
+<section class="section section-navy" id="how">
+  <div class="wrap">
+    <div class="reveal" style="max-width: 760px;">
+      <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="how.kicker">How we work</span></span>
+      <h2 class="section-title" data-i18n="how.title">
+        It starts with a conversation, not a pitch deck.
+      </h2>
+    </div>
+
+    <div class="prose reveal">
+      <p data-i18n="how.p1">
+        <span class="lead-cap">Someone has an idea, or a mess, or a half-built thing that stalled.</span> We listen, we ask the awkward questions, and together we work out whether we can actually help. If we cannot, we will say so, and point you somewhere better.
+      </p>
+      <p data-i18n="how.p2">
+        Then we get our hands dirty. We are not the kind of help that writes a report and leaves. We stay close to the work that decides whether something lives: the product, the customers, the money, and the unglamorous parts in between.
+      </p>
+      <p data-i18n="how.p3">
+        When it helps to build, we build. When it helps to step back and let you lead, we step back. The point is never to make ourselves look important; it is to get the thing standing on its own feet.
+      </p>
+      <p data-i18n="how.p4">
+        And we say what we think, plainly. If something is not working, you will hear it from us early, while it is still cheap to fix. If it is working, we will help you push. No jargon, no posturing; just an honest hand on the work.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- THE WORK -->
+<section class="section section-canvas" id="work">
   <div class="wrap">
 
     <div class="reveal" style="max-width: 760px;">
-      <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="products.kicker">De producten</span></span>
-      <h2 class="section-title" data-i18n="products.title">
-        Dezelfde motor. Twee toepassingen. Eén familie.
+      <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="work.kicker">The work</span></span>
+      <h2 class="section-title" data-i18n="work.title">
+        What idea to realisation looks like in practice.
       </h2>
-      <p class="section-lead" data-i18n="products.lead">
-        Het brede platform doet check op btw-nummers, IBANs, contracten en koop­overeenkomsten — in 31+ landen, voor bedrijven en particulieren. Real Estate past hetzelfde principe toe op Spaanse vastgoed­transacties, met de specifieke documenten die daarbij horen: nota simple, NIE, ITP, encumbrances.
+      <p class="section-lead" data-i18n="work.lead">
+        These are the projects on our table at the moment. They are here as proof, not as a catalogue; a few honest examples of the kinds of things we build, back and help across the line.
       </p>
     </div>
 
-    <div class="products-grid">
+    <div class="work-grid">
 
-      <!-- PLATFORM -->
-      <article class="product-card reveal">
-        <span class="pc-family">
-          <img src="assets/ccdc-mark.svg" alt="" style="width:16px;height:16px;" />
-          <span data-i18n="products.family_label">CCDC Familie</span>
-        </span>
-
-        <h3 class="pc-name">CCDC <span class="ccdc-grad">Platform</span></h3>
-        <p class="pc-tag" data-i18n="products.platform_tag">Het brede verificatieplatform.</p>
-
-        <span class="pc-domain">
-          <i data-lucide="globe" aria-hidden="true"></i>
-          app.checkccdc.com
-        </span>
-
-        <div class="pc-body">
-          <p data-i18n="products.platform_body1">
-            Drop een factuur, contract of koopovereenkomst. In seconden krijg je een vertrouwens­score. Wij checken de partijen, de bedragen, de IBANs en de bevoegdheden.
-          </p>
-          <p data-i18n="products.platform_body2">
-            Werkt in 31+ landen. Voor bedrijven (KYC/AML, bewaarplicht). En voor particulieren bij een grote aankoop — de eerste check is gratis, geen kennis vereist.
-          </p>
-        </div>
-
-        <ul class="pc-list">
-          <li data-i18n="products.platform_l1"><strong>Voor bedrijven:</strong> KYC, AML-compliance, geverifieerd dossier voor de bewaarplicht.</li>
-          <li data-i18n="products.platform_l2"><strong>Voor particulieren:</strong> eerste check gratis, geen kennis nodig.</li>
-          <li data-i18n="products.platform_l3"><strong>Werkingsgebied:</strong> 31+ landen.</li>
-        </ul>
-
-        <div class="pc-cta-row">
-          <a href="https://app.checkccdc.com" class="btn-pill btn-dark" data-i18n="products.platform_cta">
-            Open het platform
-            <i data-lucide="arrow-up-right" style="width:18px;height:18px;"></i>
-          </a>
-          <a href="https://app.checkccdc.com/voor-particulieren" class="btn-link" data-i18n="products.platform_cta_secondary">
-            Eerste check (gratis)
-            <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
-          </a>
-        </div>
+      <article class="work-card reveal">
+        <h3 class="work-name">CCDC</h3>
+        <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_live">Live</span></span>
+        <p class="work-body" data-i18n="work.ccdc_body">
+          Verifies documents and transactions so parties can trust each other without having to check everything themselves. For companies with mandatory checks, and for people making a large purchase.
+        </p>
       </article>
 
-      <!-- REAL ESTATE -->
-      <article class="product-card reveal">
-        <span class="pc-family">
-          <img src="assets/ccdc-mark.svg" alt="" style="width:16px;height:16px;" />
-          <span data-i18n="products.family_label_re">CCDC Familie · Specialisatie</span>
-        </span>
+      <article class="work-card reveal">
+        <h3 class="work-name">CCDC Real Estate</h3>
+        <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_pilot">Andalusia pilot</span></span>
+        <p class="work-body" data-i18n="work.re_body">
+          The real estate version of CCDC, for buying and selling in Spain. Agent, buyer, seller and lawyers in one dossier, from the first offer to the escritura.
+        </p>
+      </article>
 
-        <h3 class="pc-name">CCDC <span class="ccdc-grad">Real Estate</span></h3>
-        <p class="pc-tag" data-i18n="products.re_tag">Spaans vastgoed, één dossier van bod tot escritura.</p>
+      <article class="work-card reveal">
+        <h3 class="work-name">onlineCIO</h3>
+        <span class="work-status is-quiet"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_dev">In development</span></span>
+        <p class="work-body" data-i18n="work.cio_body">
+          Information management, business process management and IT direction, offered as a service to school boards in foundational education. For boards without an information manager of their own.
+        </p>
+      </article>
 
-        <span class="pc-domain">
-          <i data-lucide="globe" aria-hidden="true"></i>
-          ccdc.es
-        </span>
+      <article class="work-card reveal">
+        <h3 class="work-name">thnx</h3>
+        <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_live2">Live</span></span>
+        <p class="work-body" data-i18n="work.thnx_body">
+          Smart tags for lost things. The finder scans, the owner gets a message. For schools and their community, and for anyone who wants their things back. It also brings in money for a good cause or the school community.
+        </p>
+      </article>
 
-        <div class="pc-body">
-          <p data-i18n="products.re_body1">
-            Dezelfde motor, toegespitst op één sector. Eén dossier waarin makelaar, koper, verkoper en beide advocaten samenwerken — van eerste bod tot escritura.
-          </p>
-          <p data-i18n="products.re_body2">
-            We verifiëren wat een Spaanse transactie nodig heeft: nota simple, NIE, ITP-afdracht, lasten en hypotheek­inschrijvingen. Geen verrassingen bij de notaris.
-          </p>
-        </div>
+      <article class="work-card reveal">
+        <h3 class="work-name">In and Out</h3>
+        <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_soto">Sotogrande</span></span>
+        <p class="work-body" data-i18n="work.inout_body">
+          A local media and events platform that connects entrepreneurs, residents and visitors in an area, through a curated guide, events and its own magazine. The first location is Sotogrande.
+        </p>
+      </article>
 
-        <ul class="pc-list">
-          <li data-i18n="products.re_l1"><strong>Voor wie:</strong> makelaars, kopers, verkopers en hun advocaten.</li>
-          <li data-i18n="products.re_l2"><strong>Wat we checken:</strong> nota simple, NIE, ITP, encumbrances.</li>
-          <li data-i18n="products.re_l3"><strong>Pilot:</strong> Andalusië, 2026.</li>
-        </ul>
-
-        <div class="pc-cta-row">
-          <a href="https://ccdc.es" class="btn-pill btn-dark" data-i18n="products.re_cta">
-            Bekijk Real Estate
-            <i data-lucide="arrow-up-right" style="width:18px;height:18px;"></i>
-          </a>
-          <a href="https://ccdc.es/voor-makelaars" class="btn-link" data-i18n="products.re_cta_secondary">
-            Voor makelaars
-            <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
-          </a>
-        </div>
+      <article class="work-card reveal">
+        <h3 class="work-name">BiedadviesApp</h3>
+        <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_live3">Live</span></span>
+        <p class="work-body" data-i18n="work.bied_body">
+          A backoffice and mobility platform for car dealers, from buying at auctions to selling. It gives them grip on the whole business from one place, at the office or on the road.
+        </p>
       </article>
 
     </div>
 
-    <!-- "Same engine" reassurance band -->
-    <div class="engine-band reveal">
-      <span class="eb-icon"><i data-lucide="git-branch" style="width:20px;height:20px;"></i></span>
-      <p class="eb-text" data-i18n="products.engine_note">
-        <strong>Twee domeinen, één motor.</strong> Real Estate is de eerste verticale toepassing van het platform — gehost op een eigen .es-domein zodat Spaanse partijen zich er thuis voelen. Dezelfde verificatie-engine, dezelfde audit trail, dezelfde EU-hosting.
-      </p>
-      <span class="eb-domains">
-        <span>checkccdc.com</span>
-        <span class="plus">+</span>
-        <span>ccdc.es</span>
-      </span>
-    </div>
-
-    <!-- FUTURE VERTICAL SLOTS -->
-    <div class="products-grid" style="margin-top: 18px; grid-template-columns: 1fr 1fr;">
-      <article class="product-card is-future reveal">
-        <div class="future-slot">
-          <span class="future-line">
-            <span class="plus" aria-hidden="true">+</span>
-            <span data-i18n="products.future_label">Volgende vertical</span>
-          </span>
-          <h3 data-i18n="products.future_title">Welke sector vraagt erom?</h3>
-          <p data-i18n="products.future_body">
-            Het model is uitbreidbaar. Telkens wanneer een sector een eigen set documenten, regelgeving en partijen heeft, kan CCDC daar een eigen toepassing van maken. Heb je er een in gedachten?
-          </p>
-          <a href="mailto:hello@checkccdc.com" class="future-link" data-i18n="products.future_cta">
-            Praat met ons
-            <i data-lucide="arrow-right" style="width:13px;height:13px;"></i>
-          </a>
-        </div>
-      </article>
-
-      <article class="product-card is-future reveal" style="opacity: 0.55;">
-        <div class="future-slot">
-          <span class="future-line">
-            <span class="plus" aria-hidden="true">·</span>
-            <span data-i18n="products.empty_label">Ruimte voor groei</span>
-          </span>
-          <h3 style="color: var(--text-tertiary);" data-i18n="products.empty_title">Hier komt het volgende.</h3>
-          <p data-i18n="products.empty_body">
-            We voegen niets toe voordat we het volledig waar kunnen maken. Nieuwe verticals worden hier aangekondigd zodra ze in pilot zijn.
-          </p>
-        </div>
-      </article>
-    </div>
-
-  </div>
-</section>
-
-<!-- TRUST / COMPLIANCE -->
-<section class="section section-card" id="vertrouwen">
-  <div class="wrap">
-
-    <div class="reveal" style="max-width: 760px;">
-      <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="trust.kicker">Vertrouwen &amp; compliance</span></span>
-      <h2 class="section-title" data-i18n="trust.title">
-        Eerlijk, controleerbaar, in de EU.
-      </h2>
-      <p class="section-lead" data-i18n="trust.lead">
-        We bouwen iets dat juristen en compliance-officers vertrouwen — én dat een particulier in tien seconden begrijpt. Wat we wél en níet hebben, vertellen we eerlijk.
-      </p>
-    </div>
-
-    <div class="trust-grid reveal">
-      <div class="trust-cell">
-        <div class="trust-icon"><i data-lucide="shield-check" aria-hidden="true"></i></div>
-        <h4><span class="dot" aria-hidden="true"></span> <span data-i18n="trust.t1_title">EU-hosting</span></h4>
-        <p data-i18n="trust.t1_body">Gehost in Duitsland (Hetzner Falkenstein). Data verlaat de Europese Unie niet. GDPR-compliant.</p>
-      </div>
-      <div class="trust-cell">
-        <div class="trust-icon"><i data-lucide="lock" aria-hidden="true"></i></div>
-        <h4><span class="dot" aria-hidden="true"></span> <span data-i18n="trust.t2_title">Versleuteld</span></h4>
-        <p data-i18n="trust.t2_body">AES-256 op rust, TLS 1.3 op transport. Rol­gebaseerde toegang per partij. Privé-notities blijven privé.</p>
-      </div>
-      <div class="trust-cell">
-        <div class="trust-icon"><i data-lucide="badge-check" aria-hidden="true"></i></div>
-        <h4><span class="dot" aria-hidden="true"></span> <span data-i18n="trust.t3_title">Verifieerd aan de bron</span></h4>
-        <p data-i18n="trust.t3_body">Wij vertrouwen niet op kopieën. We checken bij KvK, VIES, kadaster, sanctielijst — daar waar het écht staat.</p>
-      </div>
-      <div class="trust-cell">
-        <div class="trust-icon"><i data-lucide="file-clock" aria-hidden="true"></i></div>
-        <h4><span class="dot" aria-hidden="true"></span> <span data-i18n="trust.t4_title">Bewaarplicht­waardig</span></h4>
-        <p data-i18n="trust.t4_body">Volledige audit trail. Versies, ondertekenaars, momenten. Klaar voor KYC, AML en de bewaarplicht.</p>
-      </div>
-    </div>
-
-    <p style="margin-top: 28px; font-size: 13.5px; color: var(--text-tertiary); display: inline-flex; align-items: center; gap: 8px;" data-i18n="trust.honest_note">
-      <i data-lucide="message-square-quote" style="width:14px;height:14px;color:var(--ccdc-magenta);"></i>
-      Wat we nog níet hebben (zoals ISO 27001) staat letterlijk op onze beveiligings­pagina. Eerlijkheid boven polish.
+    <p class="work-note reveal">
+      <span class="dot" aria-hidden="true"></span>
+      <span data-i18n="work.note">Different sectors, the same way of working. Each of these started as someone's idea and is being walked, step by step, toward something real.</span>
     </p>
 
   </div>
 </section>
 
-<!-- CLOSING CTA -->
-<section class="closing">
+<!-- TRACK RECORD -->
+<section class="section section-soft">
   <div class="wrap">
-    <h2 data-i18n="closing.title">Welke check past bij jou?</h2>
-    <p class="closing-lead" data-i18n="closing.lead">
-      Twee deuren naar dezelfde motor. Kies de toepassing die bij jouw situatie past.
-    </p>
+    <div class="record-wide">
+      <div class="reveal">
+        <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="record.kicker">Before this</span></span>
+        <p class="record-statement" data-i18n="record.statement">
+          None of this is a first attempt. <span class="soft">There is a long run of building underneath it.</span>
+        </p>
+      </div>
 
-    <div class="closing-cards">
-      <a href="https://app.checkccdc.com" class="closing-card">
-        <span class="cc-label" data-i18n="closing.card1_label">Brede check</span>
-        <span class="cc-title">CCDC Platform</span>
-        <span class="cc-dom">app.checkccdc.com</span>
-        <span class="cc-desc" data-i18n="closing.card1_desc">
-          Voor bedrijven en particulieren. Facturen, contracten, koop­overeen­komsten. 31+ landen.
-        </span>
-        <span class="cc-go" data-i18n="closing.card1_cta">
-          Open het platform
-          <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i>
-        </span>
+      <div class="record-body reveal">
+        <p data-i18n="record.p1">
+          Before all of this, we built a software platform for the transport training market in the Netherlands; two products that together served the whole chain. <strong>Opleidingsplatform.nl</strong> connected large staffing organisations and transport companies with the people who train drivers.
+        </p>
+        <p data-i18n="record.p2">
+          <strong>Autofox</strong> served the other side of that market: the transport trainers themselves, including the largest in the country. Close to two decades of entrepreneurship, product development and growth. That experience now sits underneath everything we do here.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="closing" id="contact">
+  <div class="wrap">
+    <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="contact.kicker">Let's talk</span></span>
+    <h2 data-i18n="contact.title">Building something? Stuck on something?</h2>
+    <p class="closing-lead" data-i18n="contact.lead">
+      Whether it is an idea on the back of a napkin or a company that has quietly stalled, we are happy to think along. No pitch deck required, and no obligation; just a conversation to see if we can help.
+    </p>
+    <div class="closing-actions">
+      <a href="mailto:webcontact@checkcheckdoublecheck.com" class="btn-pill btn-primary" data-i18n="contact.cta">
+        Start a conversation
+        <i data-lucide="arrow-up-right" style="width:18px;height:18px;"></i>
       </a>
-      <a href="https://ccdc.es" class="closing-card">
-        <span class="cc-label" data-i18n="closing.card2_label">Vastgoed in Spanje</span>
-        <span class="cc-title">CCDC Real Estate</span>
-        <span class="cc-dom">ccdc.es</span>
-        <span class="cc-desc" data-i18n="closing.card2_desc">
-          Andalusië-pilot 2026. Eén dossier van bod tot escritura. Voor alle partijen.
-        </span>
-        <span class="cc-go" data-i18n="closing.card2_cta">
-          Bekijk Real Estate
-          <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i>
-        </span>
+      <a href="#work" class="btn-pill btn-ghost" data-i18n="contact.cta2">
+        See the work first
       </a>
     </div>
+    <p class="closing-meta" data-i18n="contact.meta">Based in the Netherlands and in Sotogrande</p>
   </div>
 </section>
 
@@ -421,34 +272,28 @@
   <div class="wrap">
     <div class="foot">
       <div class="foot-brand">
-        <img class="brand-mark" src="assets/ccdc-mark-inverse.svg" alt="" style="width:24px;height:24px;" />
-        <span class="brand-name">
-          <span style="color:#fff;">checkcheck</span><span class="dot" style="background:var(--ccdc-magenta-on-dark); width:4px; height:4px; border-radius:999px; display:inline-block; margin: 0 1px;" aria-hidden="true"></span><span style="color: rgba(255,255,255,0.6);">doublecheck</span>
-        </span>
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="foot-tag" data-i18n="foot.tag">A helping hand, from idea to realisation.</span>
       </div>
-
       <div class="foot-links">
-        <a href="https://app.checkccdc.com">CCDC Platform</a>
-        <a href="https://ccdc.es">CCDC Real Estate</a>
-        <a href="#vertrouwen" data-i18n="foot.security">Beveiliging</a>
-        <a href="#" data-i18n="foot.privacy">Privacy</a>
-        <a href="mailto:hello@checkccdc.com">hello@checkccdc.com</a>
+        <a href="#what" data-i18n="nav.what">What we do</a>
+        <a href="#how" data-i18n="nav.how">How we work</a>
+        <a href="#work" data-i18n="nav.work">The work</a>
+        <a href="#contact" data-i18n="nav.talk">Let's talk</a>
       </div>
     </div>
-
     <p class="foot-meta">
-      checkcheckdoublecheck.com<span class="dot" aria-hidden="true"></span>
-      <span data-i18n="foot.meta">een Nederlands bedrijf · gehost in de EU · © 2026</span>
+      <span data-i18n="foot.meta">A Dutch entrepreneur</span><span class="dot" aria-hidden="true"></span>
+      <span data-i18n="foot.meta2">building, backing and coaching</span>
     </p>
   </div>
 </footer>
 
 <!-- PAGE SCRIPTS -->
 <script>
-  // Lucide icons
   if (window.lucide) window.lucide.createIcons();
 
-  // Nav scroll
+  // nav scroll
   (function () {
     var nav = document.getElementById('nav');
     var onScroll = function () {
@@ -459,7 +304,7 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
 
-  // Scroll reveal
+  // scroll reveal
   (function () {
     if (!('IntersectionObserver' in window)) {
       document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
@@ -467,132 +312,91 @@
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
   })();
 
-  // I18N strings
+  // i18n
   var I18N = {
-    en: {
-      'nav.products': 'Products',
-      'nav.how': 'How it works',
-      'nav.trust': 'Trust',
-      'hero.eyebrow': 'One family. One principle. Multiple checks.',
-      'hero.line1': 'We check the facts,',
-      'hero.line2_pre': 'so you can\u00a0',
-      'hero.verb_default': 'sign',
-      'hero.lead': 'CheckCheckDoubleCheck verifies documents and transactions \u2014 from VAT numbers and IBANs to trade registers and sanctions lists \u2014 and brings every party together into one secure, verified dossier. No loose copies, no forwarding chains, no sensitive documents in the wrong place.',
-      'hero.cta_primary': 'Find your check',
-      'hero.cta_secondary': 'How it works',
-      'hero.family_label': 'CCDC family',
-      'hero.family_more': 'Next verticals \u2014 in development',
-      'problem.kicker': 'The problem',
-      'problem.title': 'Documents scattered everywhere. Nobody actually checks them.',
-      'problem.lead': 'A passport on WhatsApp. An invoice by email. A VAT number in a spreadsheet. Five channels, four inboxes, three versions \u2014 and in the end nobody really looked at whether it adds up.',
-      'problem.r1_doc': 'Passport',
-      'problem.r1_sub': 'Photo, forwarded in a group chat',
-      'problem.r1_tag': 'not checked',
-      'problem.r2_doc': 'Invoice \u00b7 IBAN',
-      'problem.r2_sub': 'Amount copied, IBAN unverified',
-      'problem.r2_tag': 'not checked',
-      'problem.r3_doc': 'Purchase agreement',
-      'problem.r3_sub': 'Three versions \u2014 which is the final one?',
-      'problem.r3_tag': 'not checked',
-      'problem.r4_doc': 'Trade register extract',
-      'problem.r4_sub': 'On a desk, two weeks old',
-      'problem.r4_tag': 'expired',
-      'problem.r5_doc': 'Sanctions screening',
-      'problem.r5_sub': 'Someone was supposed to do it \u2014 who?',
-      'problem.r5_tag': 'nobody',
-      'problem.summary': 'It <strong>works</strong>, but it could be easier. And, above all: <strong>safer, auditable, reusable</strong>.',
-      'solution.kicker': 'The principle',
-      'solution.title': 'One verified place. You decide who sees what.',
-      'solution.lead': 'We verify the facts at the source \u2014 at the land registry, the chamber of commerce, the VAT database, the sanctions list. We bring it together in one dossier where each party sees exactly what they need to see. Nothing more.',
-      'solution.p1_label': 'Verified at the source',
-      'solution.p1_title': 'Not just collected \u2014 checked.',
-      'solution.p1_body': 'A VAT number is checked against VIES. An IBAN against the bank. A trade register extract against the chamber. A name against the EU sanctions list. We leave nothing unseen.',
-      'solution.p2_label': 'One dossier, every party',
-      'solution.p2_title': 'Everyone on the same page.',
-      'solution.p2_body': 'Buyer, seller, lawyers, agents, finance: each with their own workspace on the same dossier. Private notes stay private. The facts are the same for everyone.',
-      'solution.p3_label': 'Audit-ready',
-      'solution.p3_title': 'A dossier that holds up.',
-      'solution.p3_body': 'Versions, signatories, audit trail. What we checked, when, and at what moment. Fits Dutch and EU retention requirements, KYC and AML.',
-      'products.kicker': 'The products',
-      'products.title': 'Same engine. Two applications. One family.',
-      'products.lead': 'The broad platform checks VAT numbers, IBANs, contracts and purchase agreements \u2014 in 31+ countries, for businesses and individuals. Real Estate applies the same principle to Spanish property transactions, with the specific documents that come with them: nota simple, NIE, ITP, encumbrances.',
-      'products.family_label': 'CCDC family',
-      'products.family_label_re': 'CCDC family \u00b7 Specialisation',
-      'products.platform_tag': 'The broad verification platform.',
-      'products.platform_body1': 'Drop an invoice, a contract or a purchase agreement. In seconds you get a trust score. We check the parties, the amounts, the IBANs and the signing authority.',
-      'products.platform_body2': 'Works in 31+ countries. For businesses (KYC/AML, audit). And for individuals making a large purchase \u2014 the first check is free, no expertise required.',
-      'products.platform_l1': '<strong>For businesses:</strong> KYC, AML compliance, verified dossier for retention.',
-      'products.platform_l2': '<strong>For individuals:</strong> first check free, no expertise required.',
-      'products.platform_l3': '<strong>Coverage:</strong> 31+ countries.',
-      'products.platform_cta': 'Open the platform',
-      'products.platform_cta_secondary': 'First check (free)',
-      'products.re_tag': 'Spanish real estate, one dossier from offer to escritura.',
-      'products.re_body1': 'Same engine, focused on one sector. One dossier in which agent, buyer, seller and both lawyers work together \u2014 from the first offer to escritura.',
-      'products.re_body2': 'We verify what a Spanish transaction needs: nota simple, NIE, ITP, encumbrances and mortgage entries. No surprises at the notary.',
-      'products.re_l1': '<strong>Who it is for:</strong> agents, buyers, sellers and their lawyers.',
-      'products.re_l2': '<strong>What we verify:</strong> nota simple, NIE, ITP, encumbrances.',
-      'products.re_l3': '<strong>Pilot:</strong> Andalusia, 2026.',
-      'products.re_cta': 'Visit Real Estate',
-      'products.re_cta_secondary': 'For agents',
-      'products.engine_note': '<strong>Two domains, one engine.</strong> Real Estate is the first vertical application of the platform \u2014 hosted on its own .es domain so Spanish parties feel at home. Same verification engine, same audit trail, same EU hosting.',
-      'products.future_label': 'Next vertical',
-      'products.future_title': 'Which sector calls for it?',
-      'products.future_body': 'The model is extensible. Whenever a sector has its own set of documents, regulation and parties, CCDC can be tailored to it. Got one in mind?',
-      'products.future_cta': 'Talk to us',
-      'products.empty_label': 'Room to grow',
-      'products.empty_title': "What's next goes here.",
-      'products.empty_body': "We don't add anything until we can fully deliver on it. New verticals show up here once they're in pilot.",
-      'trust.kicker': 'Trust & compliance',
-      'trust.title': 'Honest, auditable, in the EU.',
-      'trust.lead': "We're building something lawyers and compliance officers trust \u2014 and that an individual understands in ten seconds. What we do and don't have, we tell you straight.",
-      'trust.t1_title': 'EU hosting',
-      'trust.t1_body': "Hosted in Germany (Hetzner Falkenstein). Data doesn't leave the EU. GDPR-compliant.",
-      'trust.t2_title': 'Encrypted',
-      'trust.t2_body': 'AES-256 at rest, TLS 1.3 in transit. Role-based access per party. Private notes stay private.',
-      'trust.t3_title': 'Verified at the source',
-      'trust.t3_body': "We don't trust copies. We check against the chamber, VIES, the land registry, the sanctions list \u2014 wherever it actually lives.",
-      'trust.t4_title': 'Audit-ready',
-      'trust.t4_body': 'Full audit trail. Versions, signatories, timestamps. Fits KYC, AML and retention requirements.',
-      'trust.honest_note': "What we don't have yet (such as ISO 27001) is listed on our security page, in plain language. Honesty over polish.",
-      'closing.title': 'Which check is yours?',
-      'closing.lead': 'Two doors to the same engine. Pick the application that fits your situation.',
-      'closing.card1_label': 'Broad check',
-      'closing.card1_desc': 'For businesses and individuals. Invoices, contracts, purchase agreements. 31+ countries.',
-      'closing.card1_cta': 'Open the platform',
-      'closing.card2_label': 'Real estate in Spain',
-      'closing.card2_desc': 'Andalusia pilot 2026. One dossier from offer to escritura. For every party.',
-      'closing.card2_cta': 'Visit Real Estate',
-      'foot.security': 'Security',
-      'foot.privacy': 'Privacy',
-      'foot.meta': 'a Dutch company \u00b7 hosted in the EU \u00b7 \u00a9 2026'
+    nl: {
+      'nav.what': 'Wat we doen',
+      'nav.how': 'Hoe we werken',
+      'nav.work': 'Het werk',
+      'nav.talk': 'Even praten',
+      'hero.eyebrow': 'Een helpende hand, van idee tot realisatie',
+      'hero.we': 'Wij&nbsp;',
+      'hero.so': 'zodat jij kunt&nbsp;',
+      'hero.lead': 'Wij helpen de idee\u00ebn van anderen werkelijkheid worden. Sommige bouwen we zelf. Andere steunen we met geld en tijd. En sommige ondernemers hebben gewoon iemand in de kamer nodig die het eerder heeft gedaan, die naast ze blijft zitten tot het ding echt af is.',
+      'hero.now_label': 'Nu bezig met',
+      'what.kicker': 'Wat we doen',
+      'what.title': 'Wij helpen goede idee\u00ebn echte dingen worden.',
+      'what.lead': 'De meeste idee\u00ebn sneuvelen ergens tussen de eerste schets en de dag dat ze op eigen benen moeten staan. Juist in dat gat zijn wij nuttig. Soms zijn wij degenen die bouwen; soms is het idee van jou en helpen we het alleen aan de overkant.',
+      'what.coda': 'E\u00e9n helpende hand, de hele weg van idee tot het ding dat echt werkt.',
+      'what.r1_label': 'Bouwen',
+      'what.r1_title': 'Sommige idee\u00ebn pakken we <span class="accent">zelf</span> op.',
+      'what.r1_body': 'Wij starten het bedrijf, leveren het product en runnen het tot het zonder ons kan staan. De projecten hieronder zijn van ons, of deels van ons, en de meeste worden nu nog gebouwd.',
+      'what.r2_label': 'Steunen',
+      'what.r2_title': 'Sommige idee\u00ebn zijn van <span class="accent">iemand anders</span>.',
+      'what.r2_body': 'Wij stoppen er geld, tijd en de littekens van eerder ondernemen in, en we blijven betrokken waar dat echt helpt. Geen naam op een lijst; iemand die je kunt bellen als er iets stuk gaat.',
+      'what.r3_label': 'Coachen',
+      'what.r3_title': 'Sommige ondernemers hebben gewoon een <span class="accent">hand</span> nodig.',
+      'what.r3_body': 'Dus wij zitten naast ze, week na week, bij de echte beslissingen en de saaie, tot het plan iets wordt dat overeind blijft. Geen rapporten, geen theater; gewoon het werk.',
+      'how.kicker': 'Hoe we werken',
+      'how.title': 'Het begint met een gesprek, niet met een pitch deck.',
+      'how.p1': '<span class="lead-cap">Iemand heeft een idee, of een rommeltje, of een half gebouwd ding dat is blijven steken.</span> Wij luisteren, we stellen de ongemakkelijke vragen, en samen zoeken we uit of we echt kunnen helpen. Als dat niet zo is, zeggen we het, en wijzen we je ergens beters naartoe.',
+      'how.p2': 'Daarna steken wij onze handen uit de mouwen. Wij zijn niet het soort hulp dat een rapport schrijft en weer vertrekt. We blijven dicht bij het werk dat bepaalt of iets leeft: het product, de klanten, het geld, en de ondankbare stukken daartussen.',
+      'how.p3': 'Als het helpt om te bouwen, bouwen we. Als het helpt om een stap terug te doen en jou te laten leiden, doen we een stap terug. Het doel is nooit om onszelf belangrijk te laten lijken; het is om het ding op eigen benen te krijgen.',
+      'how.p4': 'En wij zeggen wat we denken, gewoon recht voor zijn raap. Als iets niet werkt, hoor je het vroeg van ons, terwijl het nog goedkoop te repareren is. Als het wel werkt, helpen we je doordrukken. Geen jargon, geen poespas; gewoon een eerlijke hand op het werk.',
+      'work.kicker': 'Het werk',
+      'work.title': 'Hoe idee tot realisatie er in de praktijk uitziet.',
+      'work.lead': 'Dit zijn de projecten die nu op onze tafel liggen. Ze staan hier als bewijs, niet als catalogus; een paar eerlijke voorbeelden van de soort dingen die we bouwen, steunen en over de streep helpen.',
+      'work.s_live': 'Live',
+      'work.s_live2': 'Live',
+      'work.s_live3': 'Live',
+      'work.s_pilot': 'Pilot Andalusi\u00eb',
+      'work.s_dev': 'In ontwikkeling',
+      'work.s_soto': 'Sotogrande',
+      'work.ccdc_body': 'Verifieert documenten en transacties zodat partijen elkaar kunnen vertrouwen zonder alles zelf te controleren. Voor bedrijven met verplichte controles, en voor particulieren bij een grote aankoop.',
+      'work.re_body': 'De vastgoedvariant van CCDC, voor aan- en verkoop in Spanje. Makelaar, koper, verkoper en advocaten in \u00e9\u00e9n dossier, van het eerste bod tot de escritura.',
+      'work.cio_body': 'Informatiemanagement, bedrijfsprocesmanagement en IT-aansturing, aangeboden als dienst aan schoolbesturen in het funderend onderwijs. Voor besturen zonder een eigen informatiemanager.',
+      'work.thnx_body': 'Slimme tags voor verloren spullen. De vinder scant, de eigenaar krijgt bericht. Voor scholen en hun gemeenschap, en voor iedereen die zijn spullen terug wil. Het levert ook geld op voor het goede doel of de schoolgemeenschap.',
+      'work.inout_body': 'Een lokaal media- en eventsplatform dat ondernemers, bewoners en bezoekers in een gebied verbindt, via een gecureerde gids, evenementen en een eigen magazine. De eerste locatie is Sotogrande.',
+      'work.bied_body': 'Een backoffice- en mobiliteitsplatform voor autohandelaren, van inkoop op veilingen tot verkoop. Het geeft grip op de hele bedrijfsvoering vanaf \u00e9\u00e9n plek, op kantoor of onderweg.',
+      'work.note': 'Verschillende sectoren, dezelfde manier van werken. Elk van deze begon als het idee van iemand en wordt stap voor stap naar iets echts toe gelopen.',
+      'record.kicker': 'Hiervoor',
+      'record.statement': 'Niets hiervan is een eerste poging. <span class="soft">Eronder ligt een lange aanloop van bouwen.</span>',
+      'record.p1': 'Voor dit alles bouwden wij een softwareplatform voor de transportopleidingenmarkt in Nederland; twee producten die samen de hele keten bedienden. <strong>Opleidingsplatform.nl</strong> verbond grote uitzendorganisaties en transportbedrijven met de mensen die chauffeurs opleiden.',
+      'record.p2': '<strong>Autofox</strong> bediende de andere kant van die markt: de transportopleiders zelf, waaronder de grootste van het land. Bijna twee decennia ondernemerschap, productontwikkeling en groei. Die ervaring zit nu onder alles wat we hier doen.',
+      'contact.kicker': 'Even praten',
+      'contact.title': 'Iets aan het bouwen? Ergens vastgelopen?',
+      'contact.lead': 'Of het nu een idee op de achterkant van een bierviltje is of een bedrijf dat stilletjes is blijven steken, wij denken graag mee. Geen pitch deck nodig, en nergens toe verplicht; gewoon een gesprek om te kijken of we kunnen helpen.',
+      'contact.cta': 'Begin een gesprek',
+      'contact.cta2': 'Bekijk eerst het werk',
+      'contact.meta': 'Gevestigd in Nederland en in Sotogrande',
+      'foot.tag': 'Een helpende hand, van idee tot realisatie.',
+      'foot.meta': 'Een Nederlandse ondernemer',
+      'foot.meta2': 'bouwen, steunen en coachen'
     }
   };
 
-  // Cache NL strings from the DOM
-  var NL_SNAPSHOT = {};
+  // Snapshot English markup for toggling back
+  var EN_SNAPSHOT = {};
   document.querySelectorAll('[data-i18n]').forEach(function (el) {
     var key = el.dataset.i18n;
-    var idx = Array.from(document.querySelectorAll('[data-i18n="' + key + '"]')).indexOf(el);
-    NL_SNAPSHOT[key + '|' + idx] = el.innerHTML;
+    var all = document.querySelectorAll('[data-i18n="' + key + '"]');
+    EN_SNAPSHOT[key + '|' + Array.from(all).indexOf(el)] = el.innerHTML;
   });
 
   function applyLang(lang) {
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.dataset.i18n;
-      if (lang === 'nl') {
+      if (lang === 'en') {
         var all = document.querySelectorAll('[data-i18n="' + key + '"]');
         var idx = Array.from(all).indexOf(el);
-        var snap = NL_SNAPSHOT[key + '|' + idx];
+        var snap = EN_SNAPSHOT[key + '|' + idx];
         if (snap !== undefined) el.innerHTML = snap;
       } else if (I18N[lang] && I18N[lang][key] !== undefined) {
         el.innerHTML = I18N[lang][key];
@@ -603,53 +407,66 @@
     });
     if (window.lucide) window.lucide.createIcons();
     window.__currentLang = lang;
-    resetVerbCycle();
+    resetOneliner();
   }
 
   document.querySelectorAll('.lang button').forEach(function (b) {
     b.addEventListener('click', function () { applyLang(b.dataset.lang); });
   });
-  window.__currentLang = 'nl';
+  window.__currentLang = 'en';
 
-  // Cycling verb in the hero
-  var VERBS = {
-    nl: ['tekent', 'koopt', 'onderneemt', 'investeert', 'vertrouwt', 'doorgaat'],
-    en: ['sign',   'buy',   'scale',     'invest',     'trust',     'move on']
+  // rotating oneliner
+  var LINES = {
+    en: [
+      ['help the builders', 'build'],
+      ['back the doers', 'do'],
+      ['sharpen the idea', 'launch'],
+      ['carry the load', 'move'],
+      ['sweat the details', 'decide']
+    ],
+    nl: [
+      ['de bouwers helpen', 'bouwen'],
+      ['de doeners steunen', 'doen'],
+      ['het idee aanscherpen', 'lanceren'],
+      ['de last meedragen', 'doorgaan'],
+      ['op de details letten', 'beslissen']
+    ]
   };
-  var verbIdx = 0;
-  var verbTimer = null;
+  var lineIdx = 0;
+  var lineTimer = null;
+  var root = document.getElementById('oneliner');
+  var fillA = document.getElementById('fillA');
+  var fillB = document.getElementById('fillB');
 
-  function tickVerb() {
-    var slot = document.getElementById('verbSlot');
-    if (!slot) return;
-    var em = slot.querySelector('em');
-    if (!em) return;
-    slot.classList.add('is-fading');
+  function paint() {
+    var pair = LINES[window.__currentLang][lineIdx];
+    fillA.innerHTML = '<em>' + pair[0] + '</em>';
+    fillB.innerHTML = '<em>' + pair[1] + '</em>';
+  }
+  function tickLine() {
+    if (!root) return;
+    root.classList.add('is-fading');
     setTimeout(function () {
-      verbIdx = (verbIdx + 1) % VERBS[window.__currentLang].length;
-      em.textContent = VERBS[window.__currentLang][verbIdx];
-      slot.classList.remove('is-fading');
-    }, 280);
+      lineIdx = (lineIdx + 1) % LINES[window.__currentLang].length;
+      paint();
+      root.classList.remove('is-fading');
+    }, 300);
   }
-
-  function startVerbCycle() {
-    stopVerbCycle();
-    verbTimer = setInterval(tickVerb, 1900);
+  function startCycle() {
+    stopCycle();
+    lineTimer = setInterval(tickLine, 2200);
   }
-
-  function stopVerbCycle() {
-    if (verbTimer) { clearInterval(verbTimer); verbTimer = null; }
+  function stopCycle() {
+    if (lineTimer) { clearInterval(lineTimer); lineTimer = null; }
   }
-
-  function resetVerbCycle() {
-    var slot = document.getElementById('verbSlot');
-    if (!slot) return;
-    verbIdx = 0;
-    slot.querySelector('em').textContent = VERBS[window.__currentLang][0];
-    startVerbCycle();
+  function resetOneliner() {
+    if (!root) return;
+    lineIdx = 0;
+    paint();
+    startCycle();
   }
-
-  startVerbCycle();
+  paint();
+  startCycle();
 </script>
 
 </body>

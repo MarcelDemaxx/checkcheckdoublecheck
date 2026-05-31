@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HomeCare, scope check</title>
+<style>
+  :root{
+    --bg:#f6f3ee; --card:#ffffff; --ink:#1d2522; --muted:#6b716c;
+    --line:#e7e2d9; --accent:#a9762a; --accent-soft:#f3ead9;
+    --live:#3b7d4f; --live-bg:#e6f1ea;
+    --partial:#b07d12; --partial-bg:#f7eed6;
+    --notyet:#5a6b73; --notyet-bg:#e9eef0;
+    --nsure:#7a756c; --nsure-bg:#eeece6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:840px;margin:0 auto;padding:0 18px 120px}
+  header.top{padding:40px 0 16px}
+  .kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 8px}
+  h1{font-size:30px;line-height:1.15;margin:0 0 10px;font-weight:600}
+  .lede{font-size:16px;color:var(--muted);margin:0;max-width:64ch}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:18px 0}
+  .panel h2{font-size:18px;margin:0 0 4px;font-weight:600}
+  .why{font-size:13.5px;color:var(--accent);margin:0 0 14px;font-style:italic}
+  .panel p.body{margin:0 0 10px;font-size:14.5px;color:#434945}
+  .panel ul{margin:6px 0 0;padding-left:18px;font-size:14.5px;color:#434945}
+  .panel li{margin:3px 0}
+  .field{margin:14px 0 0}
+  .field > label{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
+  .field .hint{font-weight:400;color:var(--muted);font-size:13px}
+  input[type=text],input[type=date],textarea{width:100%;font:inherit;font-size:14.5px;padding:10px 12px;
+    border:1px solid var(--line);border-radius:9px;background:#fdfcfa;color:var(--ink)}
+  textarea{min-height:64px;resize:vertical}
+  input::placeholder,textarea::placeholder{color:#b3aea3}
+  .seg{display:flex;flex-wrap:wrap;gap:8px}
+  .segbtn{cursor:pointer;user-select:none;border:1px solid var(--line);border-radius:9px;
+    padding:9px 14px;font-size:13.5px;color:#4a504c;background:#fff;transition:.12s}
+  .segbtn:hover{border-color:#cfc7b8}
+  .segbtn.on{background:var(--accent-soft);border-color:var(--accent);color:#7c5616;font-weight:600}
+  .progress{position:sticky;top:0;z-index:5;background:rgba(246,243,238,.94);backdrop-filter:blur(6px);
+    padding:12px 0;margin:6px 0;border-bottom:1px solid var(--line)}
+  .bar{height:8px;background:#e7e2d9;border-radius:99px;overflow:hidden}
+  .bar > i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s ease}
+  .ptext{font-size:13px;color:var(--muted);margin:7px 2px 0;display:flex;justify-content:space-between}
+  section.area{margin:22px 0 0}
+  .area > h3{font-size:18px;font-weight:600;margin:0 0 4px;padding-top:6px}
+  .area .count{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px;margin:0 0 12px}
+  .item.done{border-color:#d7cfc0}
+  .q{font-size:15px;margin:0 0 12px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{flex:1 1 auto;min-width:96px;text-align:center;cursor:pointer;user-select:none;
+    border:1px solid var(--line);border-radius:9px;padding:9px 8px;font-size:13.5px;color:#4a504c;background:#fff;transition:.12s}
+  .opt:hover{border-color:#cfc7b8}
+  .opt.sel-live{background:var(--live-bg);border-color:var(--live);color:var(--live);font-weight:600}
+  .opt.sel-partial{background:var(--partial-bg);border-color:var(--partial);color:var(--partial);font-weight:600}
+  .opt.sel-notyet{background:var(--notyet-bg);border-color:var(--notyet);color:var(--notyet);font-weight:600}
+  .opt.sel-nsure{background:var(--nsure-bg);border-color:var(--nsure);color:var(--nsure);font-weight:600}
+  .note{margin-top:10px}
+  .tallies{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px}
+  .tally{flex:1 1 120px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fcfbf8}
+  .tally b{display:block;font-size:22px;font-weight:600;line-height:1.1}
+  .tally span{font-size:12.5px;color:var(--muted)}
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button.act{font:inherit;font-size:14.5px;font-weight:600;cursor:pointer;border-radius:10px;padding:11px 18px;border:1px solid var(--accent);background:var(--accent);color:#fff;transition:.12s}
+  button.act.ghost{background:#fff;color:var(--accent)}
+  button.act:hover{filter:brightness(.96)}
+  .summary{width:100%;margin-top:14px;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    padding:12px;border:1px solid var(--line);border-radius:10px;background:#fbfaf7;color:#333835;min-height:140px;display:none}
+  .saved{font-size:12.5px;color:var(--live);opacity:0;transition:.2s}
+  .saved.show{opacity:1}
+  footer{margin:30px 0 0;font-size:12.5px;color:#9a958b;text-align:center}
+  @media (max-width:560px){h1{font-size:25px}.opt{min-width:0;flex:1 1 44%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <p class="kicker">HomeCare</p>
+    <h1>Where do we stand? A quick scope check</h1>
+    <p class="lede">A shared, honest picture of where the platform is today and where it is heading, so we can build a clear roadmap together.</p>
+  </header>
+
+  <div class="panel">
+    <h2>Before you start</h2>
+    <p class="why">Please fill this in on your own, without checking with each other first, so we get each person's own view.</p>
+    <p class="body">This is not a test or a judgement. It is written in everyday terms, about what the owner experiences and what you do at the office. No technical knowledge needed, and it takes about 20 to 30 minutes. "Partial" and "Not yet" are completely normal for a platform still being built. The more honest the picture, the better the roadmap.</p>
+    <ul>
+      <li><b>Live</b>: it works for real owners today.</li>
+      <li><b>Partial</b>: started, or it looks done but is not fully working or reliable yet.</li>
+      <li><b>Not yet</b>: it does not exist yet.</li>
+      <li><b>Not sure</b>: not certain, or it does not apply. Just say so in the notes.</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2>Who is filling this in</h2>
+    <p class="why">So we can see each person's own view side by side.</p>
+    <div class="field"><label>Your name</label><input type="text" data-meta="name" placeholder="name"></div>
+    <div class="field"><label>Your role</label>
+      <div class="seg" data-segrole>
+        <span class="segbtn" data-meta="role" data-val="Kian">Kian</span>
+        <span class="segbtn" data-meta="role" data-val="Santi">Santi</span>
+        <span class="segbtn" data-meta="role" data-val="Other">Someone else</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>How the work runs now</h2>
+    <p class="why">So the roadmap fits how you already work, not to change it.</p>
+    <div class="field"><label>When did the build start?</label><input type="date" data-meta="buildStart"></div>
+    <div class="field"><label>How is the development organised and paid for? <span class="hint">(for example a team, a supplier, hours in packages)</span></label><textarea data-meta="devOrg" placeholder="A few words is fine"></textarea></div>
+    <div class="field"><label>How and by whom are tasks given to the developer?</label><textarea data-meta="devTasks" placeholder="Who decides what gets built next, and how is it passed on?"></textarea></div>
+    <div class="field"><label>Is there a written plan or specification the developer works from?</label>
+      <div class="seg">
+        <span class="segbtn" data-meta="hasSpec" data-val="Yes">Yes</span>
+        <span class="segbtn" data-meta="hasSpec" data-val="Partly">Partly</span>
+        <span class="segbtn" data-meta="hasSpec" data-val="No">No</span>
+      </div>
+      <div class="note"><input type="text" data-meta="hasSpecNote" placeholder="Optional: what is it, where does it live?"></div>
+    </div>
+  </div>
+
+  <div class="panel" style="padding-bottom:8px">
+    <h2>Status per area</h2>
+    <p class="why">A quick stand of where each part is today.</p>
+  </div>
+
+  <div class="progress">
+    <div class="bar"><i id="barfill"></i></div>
+    <div class="ptext"><span id="pcount">0 of 0 answered</span><span class="saved" id="saved">saved</span></div>
+  </div>
+
+  <main id="form"></main>
+
+  <div class="panel">
+    <h2>Expectations and timeline</h2>
+    <p class="why">So we start from a shared picture of when and what.</p>
+    <div class="field"><label>When do you expect it to be ready for owners?</label><input type="date" data-meta="readyDate"></div>
+    <div class="field"><label>How sure are you of that date?</label>
+      <div class="seg">
+        <span class="segbtn" data-meta="readyConf" data-val="Very sure">Very sure</span>
+        <span class="segbtn" data-meta="readyConf" data-val="Fairly sure">Fairly sure</span>
+        <span class="segbtn" data-meta="readyConf" data-val="Rough guess">Rough guess</span>
+      </div>
+    </div>
+    <div class="field"><label>What does "ready" mean to you?</label><textarea data-meta="readyMeaning" placeholder="What needs to be true before you would open it to owners?"></textarea></div>
+    <div class="field"><label>What have you agreed, together and with the developer, about scope and timing?</label><textarea data-meta="agreed" placeholder="Anything you have lined up or promised each other"></textarea></div>
+    <div class="field"><label>What is the biggest risk or concern right now?</label><textarea data-meta="risk" placeholder="The thing most likely to get in the way"></textarea></div>
+  </div>
+
+  <div class="panel">
+    <h2>Done? Send it back</h2>
+    <p class="body" style="margin-bottom:14px">Download the answers as a file, or copy a summary to paste into an email. Nothing is sent automatically.</p>
+    <div class="tallies">
+      <div class="tally"><b id="t-live">0</b><span>Live</span></div>
+      <div class="tally"><b id="t-partial">0</b><span>Partial</span></div>
+      <div class="tally"><b id="t-notyet">0</b><span>Not yet</span></div>
+      <div class="tally"><b id="t-nsure">0</b><span>Not sure</span></div>
+    </div>
+    <div class="btns">
+      <button class="act" id="dl">Download answers (CSV)</button>
+      <button class="act ghost" id="cp">Copy summary</button>
+    </div>
+    <textarea class="summary" id="summary" readonly></textarea>
+  </div>
+
+  <footer>HomeCare scope check &middot; your answers stay on this device until you download or copy them.</footer>
+</div>
+
+<script>
+const AREAS = [
+  ["What the owner sees and does", [
+    "A new owner can sign themselves up, and their details (ID, address, bank) are checked so they are correct",
+    "The owner has a clear home screen showing what needs their decision, what is in progress, and what is done",
+    "The owner can request a service from their phone, and flag it as urgent",
+    "The owner can order set services themselves (gardener, pool, cleaning, a stocked fridge on arrival)",
+    "The owner can enter their own stays and ask us to prepare the home for their arrival",
+    "The owner gets a monthly overview of what was done and spent, and can see the history of care for the home",
+    "The owner can set how they like the home looked after, and add a co-owner or their lawyer",
+    "The app feels fast and pleasant to use"
+  ]],
+  ["What you do at the office", [
+    "We can manage all properties and owners in one place",
+    "We can invite a new owner, and turn an interested lead into a client",
+    "Every incoming request has a clear status and nothing gets lost",
+    "We can make a quote or work order, with our margin on top of the contractor cost",
+    "Each property has its own list of trusted contractors (their gardener, their plumber)",
+    "We can load our existing owners and properties in one go at the start",
+    "When an owner leaves, we can close it off cleanly (final invoice, access ended)"
+  ]],
+  ["Inspections and visits", [
+    "Inspections are planned automatically per plan, including seasonal checks",
+    "The inspector can do the inspection on their phone, also without internet at the house",
+    "We can prove the inspector was really at the house, and when",
+    "Each issue reaches the owner as a problem with a proposed solution and price, not a raw checklist"
+  ]],
+  ["Payments and invoices", [
+    "Owners pay their subscription automatically by direct debit, with IVA handled",
+    "Invoices go out automatically, with our margin included",
+    "Failed payments are chased automatically, and plan changes are handled fairly",
+    "Hourly work, like a gardener, is billed on the real hours used",
+    "An owner can see and pay all their invoices in one place"
+  ]],
+  ["Access and security", [
+    "Access can be arranged by key, by a personal code, or through the app",
+    "We record where the keys are kept and which alarm and lock the home has",
+    "Each person gets their own code that works only for the agreed time",
+    "We can see who entered and when, and the owner can be notified",
+    "The owner can see that the people we send are screened and insured"
+  ]],
+  ["Documents", [
+    "All the home's documents are kept in one organised place",
+    "When a document is uploaded, the key details are read out automatically",
+    "Community of owners (VvE) information is summarised in plain language for the owner",
+    "We get a reminder before something expires or needs renewing",
+    "The home's contents and equipment are listed, with their warranties"
+  ]],
+  ["Communication", [
+    "The owner and our team chat inside the app, with a notification so nothing is missed",
+    "The owner can use the app in their own language",
+    "Messages are translated automatically so language is never a barrier",
+    "The owner can choose what they get notified about"
+  ]],
+  ["Settings and control (office)", [
+    "We can change prices, plans, services and texts ourselves, without a developer",
+    "We can switch features on or off ourselves",
+    "Each staff member has their own login and sees only what fits their role",
+    "We can see who changed what and when",
+    "Connections to outside services (payments, email) are set up and kept safe"
+  ]],
+  ["Marketing and new owners", [
+    "There are public web pages that attract new owners",
+    "Someone interested can leave their details, which we turn into an invitation",
+    "The website works in multiple languages and is easy to find online"
+  ]]
+];
+const STATUSES=[["Live","live"],["Partial","partial"],["Not yet","notyet"],["Not sure","nsure"]];
+const KEY="homecare-scope-check-v2";
+const state={items:{},meta:{}};
+let TOTAL=0;
+AREAS.forEach((a,ai)=>a[1].forEach((_,ii)=>{state.items[ai+"_"+ii]={status:"",note:""};TOTAL++;}));
+
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s){if(s.items)Object.assign(state.items,s.items);if(s.meta)state.meta=s.meta;}}catch(e){}
+
+const form=document.getElementById("form");
+AREAS.forEach((area,ai)=>{
+  const sec=document.createElement("section");sec.className="area";
+  const h=document.createElement("h3");h.textContent=area[0];sec.appendChild(h);
+  const cnt=document.createElement("p");cnt.className="count";cnt.id="cnt_"+ai;sec.appendChild(cnt);
+  area[1].forEach((q,ii)=>{
+    const id=ai+"_"+ii;
+    const item=document.createElement("div");item.className="item";item.id="item_"+id;
+    const qp=document.createElement("p");qp.className="q";qp.textContent=q;item.appendChild(qp);
+    const opts=document.createElement("div");opts.className="opts";
+    STATUSES.forEach(([label,val])=>{
+      const lab=document.createElement("span");lab.className="opt";lab.dataset.val=val;lab.dataset.id=id;
+      lab.textContent=label;
+      lab.addEventListener("click",()=>{state.items[id].status=val;render();save();});
+      opts.appendChild(lab);
+    });
+    item.appendChild(opts);
+    const note=document.createElement("div");note.className="note";
+    const ni=document.createElement("input");ni.type="text";ni.placeholder="Note (optional)";
+    ni.value=state.items[id].note||"";
+    ni.addEventListener("input",e=>{state.items[id].note=e.target.value;save();});
+    note.appendChild(ni);item.appendChild(note);
+    sec.appendChild(item);
+  });
+  form.appendChild(sec);
+});
+
+document.querySelectorAll("input[data-meta],textarea[data-meta]").forEach(el=>{
+  const k=el.dataset.meta;if(state.meta[k]!=null)el.value=state.meta[k];
+  el.addEventListener("input",e=>{state.meta[k]=e.target.value;save();});
+});
+document.querySelectorAll(".segbtn[data-meta]").forEach(el=>{
+  const k=el.dataset.meta;
+  if(state.meta[k]===el.dataset.val)el.classList.add("on");
+  el.addEventListener("click",()=>{
+    state.meta[k]=el.dataset.val;
+    document.querySelectorAll('.segbtn[data-meta="'+k+'"]').forEach(s=>s.classList.toggle("on",s===el));
+    save();
+  });
+});
+
+let savedTimer=null;
+function save(){
+  try{localStorage.setItem(KEY,JSON.stringify(state));
+    const s=document.getElementById("saved");s.classList.add("show");
+    clearTimeout(savedTimer);savedTimer=setTimeout(()=>s.classList.remove("show"),1200);
+  }catch(e){}
+}
+
+function render(){
+  let answered=0;const tally={live:0,partial:0,notyet:0,nsure:0};
+  AREAS.forEach((area,ai)=>{
+    let ac=0;
+    area[1].forEach((_,ii)=>{
+      const id=ai+"_"+ii;const st=state.items[id].status;
+      document.querySelectorAll('.opt[data-id="'+id+'"]').forEach(o=>{o.className="opt"+(o.dataset.val===st?" sel-"+st:"");});
+      const item=document.getElementById("item_"+id);
+      if(st){answered++;ac++;tally[st]++;item.classList.add("done");}else{item.classList.remove("done");}
+    });
+    document.getElementById("cnt_"+ai).textContent=ac+" of "+area[1].length+" answered";
+  });
+  document.getElementById("barfill").style.width=(TOTAL?Math.round(answered/TOTAL*100):0)+"%";
+  document.getElementById("pcount").textContent=answered+" of "+TOTAL+" answered";
+  document.getElementById("t-live").textContent=tally.live;
+  document.getElementById("t-partial").textContent=tally.partial;
+  document.getElementById("t-notyet").textContent=tally.notyet;
+  document.getElementById("t-nsure").textContent=tally.nsure;
+}
+
+const LBL={live:"Live",partial:"Partial",notyet:"Not yet",nsure:"Not sure","":"(not answered)"};
+const m=k=>state.meta[k]||"";
+const META=[
+  ["How the work runs now",[
+    ["Build started",()=>m("buildStart")],
+    ["Development organised and paid for",()=>m("devOrg")],
+    ["Tasks given to developer by",()=>m("devTasks")],
+    ["Written plan or specification",()=>(m("hasSpec")+(m("hasSpecNote")?", "+m("hasSpecNote"):""))]
+  ]],
+  ["Expectations and timeline",[
+    ["Expected ready for owners",()=>m("readyDate")],
+    ["Confidence in that date",()=>m("readyConf")],
+    ["What ready means",()=>m("readyMeaning")],
+    ["Agreed on scope and timing",()=>m("agreed")],
+    ["Biggest risk or concern",()=>m("risk")]
+  ]]
+];
+function csvCell(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"';}
+function download(){
+  const L=[];
+  L.push(["HomeCare scope check","",""].map(csvCell).join(","));
+  L.push(["Filled in by",m("name"),""].map(csvCell).join(","));
+  L.push(["Role",m("role"),""].map(csvCell).join(","));
+  L.push(["Date",new Date().toLocaleString(),""].map(csvCell).join(","));
+  L.push("");
+  META[0][1].forEach(([lab,fn])=>L.push([META[0][0],lab,fn()].map(csvCell).join(",")));
+  L.push("");
+  L.push(["Area","Item","Status","Notes"].map(csvCell).join(","));
+  AREAS.forEach((area,ai)=>area[1].forEach((q,ii)=>{
+    const s=state.items[ai+"_"+ii];L.push([area[0],q,LBL[s.status],s.note||""].map(csvCell).join(","));
+  }));
+  L.push("");
+  META[1][1].forEach(([lab,fn])=>L.push([META[1][0],lab,fn()].map(csvCell).join(",")));
+  const csv="\ufeff"+L.join("\r\n");
+  const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download="homecare-scope-check-"+(m("role")||"reply").toLowerCase()+".csv";
+  document.body.appendChild(a);a.click();a.remove();
+}
+function summaryText(){
+  let o="HomeCare scope check\n";
+  o+="Filled in by: "+(m("name")||"-")+"   Role: "+(m("role")||"-")+"\n";
+  o+="Date: "+new Date().toLocaleString()+"\n\n";
+  o+=META[0][0]+"\n";
+  META[0][1].forEach(([lab,fn])=>o+="  "+lab+": "+(fn()||"-")+"\n");
+  let answered=0;const t={live:0,partial:0,notyet:0,nsure:0};
+  Object.values(state.items).forEach(s=>{if(s.status){answered++;t[s.status]++;}});
+  o+="\nStatus per area  (answered "+answered+" of "+TOTAL+": Live "+t.live+", Partial "+t.partial+", Not yet "+t.notyet+", Not sure "+t.nsure+")\n";
+  AREAS.forEach((area,ai)=>{
+    o+="\n"+area[0]+"\n";
+    area[1].forEach((q,ii)=>{const s=state.items[ai+"_"+ii];o+="  ["+LBL[s.status]+"] "+q+(s.note?"  |  "+s.note:"")+"\n";});
+  });
+  o+="\n"+META[1][0]+"\n";
+  META[1][1].forEach(([lab,fn])=>o+="  "+lab+": "+(fn()||"-")+"\n");
+  return o;
+}
+document.getElementById("dl").addEventListener("click",download);
+document.getElementById("cp").addEventListener("click",async()=>{
+  const txt=summaryText();const box=document.getElementById("summary");
+  box.value=txt;box.style.display="block";
+  let ok=false;
+  try{await navigator.clipboard.writeText(txt);ok=true;}catch(e){try{box.focus();box.select();ok=document.execCommand("copy");}catch(e2){}}
+  const b=document.getElementById("cp");const old=b.textContent;
+  b.textContent=ok?"Copied":"Select the text below and copy";setTimeout(()=>b.textContent=old,1800);
+});
+
+render();
+</script>
+</body>
+</html>

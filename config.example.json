@@ -1,0 +1,7 @@
+{
+  "adminToken": "REPLACE-WITH-A-RANDOM-TOKEN",
+  "people": [
+    { "token": "REPLACE-WITH-A-RANDOM-TOKEN", "name": "Kian", "role": "Kian" },
+    { "token": "REPLACE-WITH-A-RANDOM-TOKEN", "name": "Santi", "role": "Santi" }
+  ]
+}

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>HomeCare, scope check</title>
+<style>
+  :root{
+    --bg:#f6f3ee; --card:#ffffff; --ink:#1d2522; --muted:#6b716c;
+    --line:#e7e2d9; --accent:#a9762a; --accent-soft:#f3ead9;
+    --live:#3b7d4f; --live-bg:#e6f1ea;
+    --partial:#b07d12; --partial-bg:#f7eed6;
+    --notyet:#5a6b73; --notyet-bg:#e9eef0;
+    --nsure:#7a756c; --nsure-bg:#eeece6;
+    --notneeded:#6f6f7a; --notneeded-bg:#ececef;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:840px;margin:0 auto;padding:0 18px 120px}
+  header.top{padding:40px 0 16px}
+  .kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 8px}
+  h1{font-size:30px;line-height:1.15;margin:0 0 10px;font-weight:600}
+  .lede{font-size:16px;color:var(--muted);margin:0;max-width:64ch}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:18px 0}
+  .panel h2{font-size:18px;margin:0 0 4px;font-weight:600}
+  .why{font-size:13.5px;color:var(--accent);margin:0 0 14px;font-style:italic}
+  .panel p.body{margin:0 0 10px;font-size:14.5px;color:#434945}
+  .panel ul{margin:6px 0 0;padding-left:18px;font-size:14.5px;color:#434945}
+  .panel li{margin:3px 0}
+  .field{margin:14px 0 0}
+  .field > label{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
+  .field .hint{font-weight:400;color:var(--muted);font-size:13px}
+  input[type=text],input[type=date],textarea{width:100%;font:inherit;font-size:14.5px;padding:10px 12px;
+    border:1px solid var(--line);border-radius:9px;background:#fdfcfa;color:var(--ink)}
+  textarea{min-height:64px;resize:vertical}
+  input::placeholder,textarea::placeholder{color:#b3aea3}
+  .seg{display:flex;flex-wrap:wrap;gap:8px}
+  .segbtn{cursor:pointer;user-select:none;border:1px solid var(--line);border-radius:9px;
+    padding:9px 14px;font-size:13.5px;color:#4a504c;background:#fff;transition:.12s}
+  .segbtn:hover{border-color:#cfc7b8}
+  .segbtn.on{background:var(--accent-soft);border-color:var(--accent);color:#7c5616;font-weight:600}
+  /* Locked identity banner (role/name come from the link, not a button) */
+  .idbar{display:flex;flex-wrap:wrap;align-items:center;gap:14px;background:var(--accent-soft);
+    border:1px solid var(--accent);border-radius:14px;padding:16px 20px;margin:18px 0}
+  .idbar .who{font-size:16px;font-weight:600}
+  .idbar .who small{display:block;font-size:12.5px;font-weight:400;color:#7c5616;letter-spacing:.04em;text-transform:uppercase}
+  .idbar .lock{margin-left:auto;font-size:12.5px;color:#7c5616;display:inline-flex;align-items:center;gap:6px}
+  .progress{position:sticky;top:0;z-index:5;background:rgba(246,243,238,.94);backdrop-filter:blur(6px);
+    padding:12px 0;margin:6px 0;border-bottom:1px solid var(--line)}
+  .bar{height:8px;background:#e7e2d9;border-radius:99px;overflow:hidden}
+  .bar > i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s ease}
+  .ptext{font-size:13px;color:var(--muted);margin:7px 2px 0;display:flex;justify-content:space-between}
+  section.area{margin:22px 0 0}
+  .area > h3{font-size:18px;font-weight:600;margin:0 0 4px;padding-top:6px}
+  .area .count{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px;margin:0 0 12px}
+  .item.done{border-color:#d7cfc0}
+  .q{font-size:15px;margin:0 0 12px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{flex:1 1 auto;min-width:96px;text-align:center;cursor:pointer;user-select:none;
+    border:1px solid var(--line);border-radius:9px;padding:9px 8px;font-size:13.5px;color:#4a504c;background:#fff;transition:.12s}
+  .opt:hover{border-color:#cfc7b8}
+  .opt.sel-live{background:var(--live-bg);border-color:var(--live);color:var(--live);font-weight:600}
+  .opt.sel-partial{background:var(--partial-bg);border-color:var(--partial);color:var(--partial);font-weight:600}
+  .opt.sel-notyet{background:var(--notyet-bg);border-color:var(--notyet);color:var(--notyet);font-weight:600}
+  .opt.sel-nsure{background:var(--nsure-bg);border-color:var(--nsure);color:var(--nsure);font-weight:600}
+  .opt.sel-notneeded{background:var(--notneeded-bg);border-color:var(--notneeded);color:var(--notneeded);font-weight:600}
+  .note{margin-top:10px}
+  .tallies{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px}
+  .tally{flex:1 1 120px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fcfbf8}
+  .tally b{display:block;font-size:22px;font-weight:600;line-height:1.1}
+  .tally span{font-size:12.5px;color:var(--muted)}
+  .btns{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  button.act{font:inherit;font-size:15px;font-weight:600;cursor:pointer;border-radius:10px;padding:13px 26px;border:1px solid var(--accent);background:var(--accent);color:#fff;transition:.12s}
+  button.act:hover{filter:brightness(.96)}
+  button.act:disabled{opacity:.5;cursor:default;filter:none}
+  .saved{font-size:12.5px;color:var(--live);opacity:0;transition:.2s}
+  .saved.show{opacity:1}
+  .submitnote{font-size:13px;color:var(--muted);margin:0 0 14px}
+  footer{margin:30px 0 0;font-size:12.5px;color:#9a958b;text-align:center}
+  @media (max-width:560px){h1{font-size:25px}.opt{min-width:0;flex:1 1 44%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <!-- Identity comes from the link; JS reads it from these data attributes -->
+  <span id="identity" data-name="{{NAME}}" data-role="{{ROLE}}" data-token="{{TOKEN}}" hidden></span>
+
+  <header class="top">
+    <p class="kicker">HomeCare</p>
+    <h1>Where do we stand? A quick scope check</h1>
+    <p class="lede">A shared, honest picture of where the platform is today and where it is heading, so we can build a clear roadmap together.</p>
+  </header>
+
+  <div class="idbar">
+    <div class="who">{{NAME}}</div>
+    <div class="lock">&#128274; Linked to this person</div>
+  </div>
+
+  <div class="panel">
+    <h2>Before you start</h2>
+    <p class="why">Please fill this in on your own, without checking with each other first, so we get each person's own view.</p>
+    <p class="body">This is not a test or a judgement. It is written in everyday terms, about what the owner experiences and what you do at the office. No technical knowledge needed, and it takes about 20 to 30 minutes. "Partial" and "Not yet" are completely normal for a platform still being built. The more honest the picture, the better the roadmap.</p>
+    <ul>
+      <li><b>Live</b>: it works for real owners today.</li>
+      <li><b>Partial</b>: started, or it looks done but is not fully working or reliable yet.</li>
+      <li><b>Not yet</b>: it does not exist yet.</li>
+      <li><b>Not sure</b>: not certain, or it does not apply. Just say so in the notes.</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2>How the work runs now</h2>
+    <p class="why">So the roadmap fits how you already work, not to change it.</p>
+    <div class="field"><label>When did the build start?</label><input type="date" data-meta="buildStart"></div>
+    <div class="field"><label>How and by whom are tasks given to the developer?</label><textarea data-meta="devTasks" placeholder="Who decides what gets built next, and how is it passed on?"></textarea></div>
+    <div class="field"><label>Is there a written plan or specification the developer works from?</label>
+      <div class="seg">
+        <span class="segbtn" data-meta="hasSpec" data-val="Yes">Yes</span>
+        <span class="segbtn" data-meta="hasSpec" data-val="Partly">Partly</span>
+        <span class="segbtn" data-meta="hasSpec" data-val="No">No</span>
+        <span class="segbtn" data-meta="hasSpec" data-val="Not sure">Not sure</span>
+      </div>
+      <div class="note"><input type="text" data-meta="hasSpecNote" placeholder="Optional: what is it, where does it live?"></div>
+    </div>
+  </div>
+
+  <div class="panel" style="padding-bottom:8px">
+    <h2>Status per area</h2>
+    <p class="why">A quick stand of where each part is today.</p>
+  </div>
+
+  <div class="progress">
+    <div class="bar"><i id="barfill"></i></div>
+    <div class="ptext"><span id="pcount">0 of 0 answered</span><span class="saved" id="saved">saved</span></div>
+  </div>
+
+  <main id="form"></main>
+
+  <div class="panel">
+    <h2>Expectations and timeline</h2>
+    <p class="why">So we start from a shared picture of when and what.</p>
+    <div class="field"><label>When do you expect it to be ready for owners?</label><input type="date" data-meta="readyDate"></div>
+    <div class="field"><label>How sure are you of that date?</label>
+      <div class="seg">
+        <span class="segbtn" data-meta="readyConf" data-val="Very sure">Very sure</span>
+        <span class="segbtn" data-meta="readyConf" data-val="Fairly sure">Fairly sure</span>
+        <span class="segbtn" data-meta="readyConf" data-val="Rough guess">Rough guess</span>
+      </div>
+    </div>
+    <div class="field"><label>What does "ready" mean to you?</label><textarea data-meta="readyMeaning" placeholder="What needs to be true before you would open it to owners?"></textarea></div>
+    <div class="field"><label>What have you agreed, together and with the developer, about scope and timing?</label><textarea data-meta="agreed" placeholder="Anything you have lined up or promised each other"></textarea></div>
+    <div class="field"><label>What is the biggest risk or concern right now?</label><textarea data-meta="risk" placeholder="The thing most likely to get in the way"></textarea></div>
+  </div>
+
+  <div class="panel">
+    <h2>Done? Send it back</h2>
+    <p class="submitnote">Your answers are saved on this device as you go. When you press submit, they are sent to us and <strong>this link can no longer be used</strong>, so review before sending.</p>
+    <div class="tallies">
+      <div class="tally"><b id="t-live">0</b><span>Live</span></div>
+      <div class="tally"><b id="t-partial">0</b><span>Partial</span></div>
+      <div class="tally"><b id="t-notyet">0</b><span>Not yet</span></div>
+      <div class="tally"><b id="t-nsure">0</b><span>Not sure</span></div>
+      <div class="tally"><b id="t-notneeded">0</b><span>Not needed</span></div>
+    </div>
+    <form id="scopeform" method="POST" action="/f/{{TOKEN}}">
+      <input type="hidden" name="payload" id="payload">
+      <div class="btns">
+        <button class="act" id="submitBtn" type="submit">Submit answers</button>
+        <span class="saved" id="saved2">saved</span>
+      </div>
+    </form>
+  </div>
+
+  <footer>HomeCare scope check &middot; your answers are saved on this device until you submit.</footer>
+</div>
+
+<script>
+const AREAS = {{AREAS_JSON}};
+const STATUSES=[["Live","live"],["Partial","partial"],["Not yet","notyet"],["Not sure","nsure"],["Not needed","notneeded"]];
+
+const IDENTITY = document.getElementById("identity");
+const NAME = IDENTITY.dataset.name || "";
+const ROLE = IDENTITY.dataset.role || "";
+const TOKEN = IDENTITY.dataset.token || "";
+// localStorage scoped per token so two links on one device never mix.
+const KEY = "homecare-scope-check-" + TOKEN;
+
+const state={items:{},meta:{}};
+let TOTAL=0;
+AREAS.forEach((a,ai)=>a[1].forEach((_,ii)=>{state.items[ai+"_"+ii]={status:"",note:""};TOTAL++;}));
+
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s){if(s.items)Object.assign(state.items,s.items);if(s.meta)state.meta=s.meta;}}catch(e){}
+// Identity is authoritative from the link, not the saved copy.
+state.meta.name=NAME;
+state.meta.role=ROLE;
+
+const form=document.getElementById("form");
+AREAS.forEach((area,ai)=>{
+  const sec=document.createElement("section");sec.className="area";
+  const h=document.createElement("h3");h.textContent=area[0];sec.appendChild(h);
+  const cnt=document.createElement("p");cnt.className="count";cnt.id="cnt_"+ai;sec.appendChild(cnt);
+  area[1].forEach((q,ii)=>{
+    const id=ai+"_"+ii;
+    const item=document.createElement("div");item.className="item";item.id="item_"+id;
+    const qp=document.createElement("p");qp.className="q";qp.textContent=q;item.appendChild(qp);
+    const opts=document.createElement("div");opts.className="opts";
+    STATUSES.forEach(([label,val])=>{
+      const lab=document.createElement("span");lab.className="opt";lab.dataset.val=val;lab.dataset.id=id;
+      lab.textContent=label;
+      lab.addEventListener("click",()=>{state.items[id].status=val;render();save();});
+      opts.appendChild(lab);
+    });
+    item.appendChild(opts);
+    const note=document.createElement("div");note.className="note";
+    const ni=document.createElement("input");ni.type="text";ni.placeholder="Note (optional)";
+    ni.value=state.items[id].note||"";
+    ni.addEventListener("input",e=>{state.items[id].note=e.target.value;save();});
+    note.appendChild(ni);item.appendChild(note);
+    sec.appendChild(item);
+  });
+  form.appendChild(sec);
+});
+
+document.querySelectorAll("input[data-meta],textarea[data-meta]").forEach(el=>{
+  const k=el.dataset.meta;if(state.meta[k]!=null)el.value=state.meta[k];
+  el.addEventListener("input",e=>{state.meta[k]=e.target.value;save();});
+});
+document.querySelectorAll(".segbtn[data-meta]").forEach(el=>{
+  const k=el.dataset.meta;
+  if(state.meta[k]===el.dataset.val)el.classList.add("on");
+  el.addEventListener("click",()=>{
+    state.meta[k]=el.dataset.val;
+    document.querySelectorAll('.segbtn[data-meta="'+k+'"]').forEach(s=>s.classList.toggle("on",s===el));
+    save();
+  });
+});
+
+let savedTimer=null;
+function save(){
+  try{localStorage.setItem(KEY,JSON.stringify(state));
+    document.querySelectorAll(".saved").forEach(s=>s.classList.add("show"));
+    clearTimeout(savedTimer);savedTimer=setTimeout(()=>document.querySelectorAll(".saved").forEach(s=>s.classList.remove("show")),1200);
+  }catch(e){}
+}
+
+function render(){
+  let answered=0;const tally={live:0,partial:0,notyet:0,nsure:0,notneeded:0};
+  AREAS.forEach((area,ai)=>{
+    let ac=0;
+    area[1].forEach((_,ii)=>{
+      const id=ai+"_"+ii;const st=state.items[id].status;
+      document.querySelectorAll('.opt[data-id="'+id+'"]').forEach(o=>{o.className="opt"+(o.dataset.val===st?" sel-"+st:"");});
+      const item=document.getElementById("item_"+id);
+      if(st){answered++;ac++;tally[st]++;item.classList.add("done");}else{item.classList.remove("done");}
+    });
+    document.getElementById("cnt_"+ai).textContent=ac+" of "+area[1].length+" answered";
+  });
+  document.getElementById("barfill").style.width=(TOTAL?Math.round(answered/TOTAL*100):0)+"%";
+  document.getElementById("pcount").textContent=answered+" of "+TOTAL+" answered";
+  document.getElementById("t-live").textContent=tally.live;
+  document.getElementById("t-partial").textContent=tally.partial;
+  document.getElementById("t-notyet").textContent=tally.notyet;
+  document.getElementById("t-nsure").textContent=tally.nsure;
+  document.getElementById("t-notneeded").textContent=tally.notneeded;
+}
+
+// Submit: serialise state into the hidden field, confirm, then POST normally.
+document.getElementById("scopeform").addEventListener("submit",function(e){
+  let answered=0;Object.values(state.items).forEach(s=>{if(s.status)answered++;});
+  const msg="After submitting, this link can no longer be used."
+    +(answered<TOTAL?("\n\nYou have answered "+answered+" of "+TOTAL+" items."):"")
+    +"\n\nSubmit now?";
+  if(!window.confirm(msg)){e.preventDefault();return;}
+  state.meta.name=NAME;state.meta.role=ROLE;
+  document.getElementById("payload").value=JSON.stringify({items:state.items,meta:state.meta});
+  document.getElementById("submitBtn").disabled=true;
+  document.getElementById("submitBtn").textContent="Sending…";
+  // allow the native form POST to proceed
+});
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+# Example systemd service for the HomeCare scope-check app.
+# Copy to /etc/systemd/system/checkcheckdoublecheck.service and adjust paths/user.
+#
+#   sudo cp deploy/checkcheckdoublecheck.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now checkcheckdoublecheck
+#   sudo systemctl status checkcheckdoublecheck
+#   journalctl -u checkcheckdoublecheck -f      # live logs
+
+[Unit]
+Description=CheckCheckDoubleCheck HomeCare scope-check
+After=network.target
+
+[Service]
+Type=simple
+# Adjust to wherever you checked out the repo on the server:
+WorkingDirectory=/opt/checkcheckdoublecheck
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=3
+
+# Run as an unprivileged user (create one, e.g. `adduser --system ccdc`):
+User=ccdc
+Group=ccdc
+
+# Environment. PORT must match the nginx upstream below.
+Environment=NODE_ENV=production
+Environment=PORT=8090
+Environment=PUBLIC_BASE_URL=https://checkcheckdoublecheck.com
+# Tokens live in config.json (mode 600) in WorkingDirectory.
+# Alternatively provide them here instead of config.json:
+# Environment=ADMIN_TOKEN=...
+# Environment=KIAN_TOKEN=...
+# Environment=SANTI_TOKEN=...
+
+# Light hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+# data/ and config.json must stay writable/readable inside WorkingDirectory.
+
+[Install]
+WantedBy=multi-user.target
