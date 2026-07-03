@@ -1,7 +1,18 @@
 /* ─────────────────────────────────────────────────────────────────────
-   CCDC — Design Tokens
+   CCDC Real Estate — Design Tokens
+   Source of truth: ccdc-realestate-web/src/app/globals.css (UX-Pariteit
+   Fase 1 ported from ccdc-web). Mirrors the production --css-vars exactly
+   so a screenshot from this stylesheet matches a screenshot from prod.
+
+   Loading order matters: import this file BEFORE any component CSS so
+   `var(--ccdc-navy)` and friends resolve correctly.
    ──────────────────────────────────────────────────────────────────── */
 
+/* DM Sans — the production type face. We ship the actual variable-font
+   TTFs in /fonts so these mocks match production metrics exactly (no
+   Google-Fonts CDN substitution drift). Variable axes: opsz 9–40, wght
+   100–1000. In Next.js prod the same files load via next/font; here we
+   register them with @font-face. */
 @font-face {
   font-family: "DM Sans";
   src: url("fonts/DMSans-VariableFont_opsz_wght.ttf") format("truetype-variations");
@@ -18,6 +29,10 @@
 }
 
 :root {
+  /* ─── BRAND PALETTE ──────────────────────────────────────────────
+     Four-stop signature gradient runs through the logo and every CTA.
+     Navy is the anchor; magenta-on-dark is the version you use on
+     dark backgrounds (a slightly lighter magenta that doesn't muddy). */
   --ccdc-navy:               #03173c;
   --ccdc-navy-light:         #1a1f5e;
   --ccdc-purple:             #6b35a8;
@@ -25,32 +40,108 @@
   --ccdc-magenta-on-dark:    #ff4fa3;
   --ccdc-cyan:               #2ab4d4;
 
+  /* Signature gradient — 135° magenta → purple. Used on every brand
+     CTA (login button, "Start je dossier", sidebar-active glow). */
   --ccdc-gradient-accent:    linear-gradient(135deg, #c0187a, #6b35a8);
   --ccdc-gradient-glow:      linear-gradient(135deg, rgba(192,24,122,.3), rgba(107,53,168,.3));
 
+  /* Marketing hero gradient — radial wash at 20%/90% from magenta
+     through purple into deep navy. Backbone of every public page. */
   --ccdc-hero-gradient:
     radial-gradient(circle at 20% 90%,
       rgba(192, 24, 122, 0.35) 0%,
       rgba(107, 53,  168, 0.25) 30%,
       rgba(3,   23,  60,  1.00) 70%);
 
+  /* ─── SURFACES (Apple HIG side of the system) ────────────────────
+     The platform app sits on #FAFAFA, NEVER pure white. Cards are
+     #FFFFFF with a 4% black border so they read as "lifted" without
+     a heavy shadow. The sidebar is a separate dark surface. */
   --bg-primary:              #FAFAFA;
   --bg-secondary:            #F5F5F7;
   --bg-surface:              #FFFFFF;
+  --bg-sidebar:              rgba(28, 28, 30, 0.92);
+  --bg-sidebar-active:       rgba(255, 255, 255, 0.10);
+  --bg-sidebar-hover:        rgba(255, 255, 255, 0.06);
+  --sidebar-navy:            #03173c;
+  --sidebar-gradient-from:   #c0187a;
+  --sidebar-gradient-to:     #6b35a8;
+  --sidebar-active-glow:     0 0 20px rgba(192, 24, 122, 0.3);
 
+  /* Stitch hierarchy — surface containers for cards-in-cards. */
+  --surface-base:            #f9f9f9;
+  --surface-container-low:   #f3f3f3;
+  --surface-container:       #eeeeee;
+  --surface-container-high:  #e8e8e8;
+  --surface-container-highest:#e2e2e2;
+  --surface-container-lowest:#ffffff;
+  --surface-variant:         #e2e2e2;
+
+  /* ─── INK ─────────────────────────────────────────────────────────
+     Never #000. Apple's three-tier text scale. */
   --text-primary:            #1D1D1F;
   --text-secondary:          #6E6E73;
   --text-tertiary:           #AEAEB2;
+  --on-surface-variant:      #44464e;
 
+  /* ─── ACCENTS (Apple system colors, used for status only) ────────
+     These are pulled straight from Apple's HIG palette. Use them with
+     8–12% opacity backgrounds and full-strength text/icons. */
+  --accent-blue:             #007AFF;
+  --accent-green:            #34C759;
+  --accent-red:              #FF3B30;
+  --accent-orange:           #FF9500;
+  --accent-yellow:           #FFCC00;
+  --accent-purple:           #AF52DE;
+  --accent-teal:             #5AC8FA;
+
+  /* ─── SEMANTIC STATE TOKENS ─────────────────────────────────────
+     Used in intake / dossier UI. "Saved" = green; "Attention" = purple
+     (the brand's signal for "your move"). Computed via color-mix so
+     tints stay consistent if you ever rebalance the base accent. */
+  --state-saved-bg-soft:     color-mix(in srgb, var(--accent-green) 6%, transparent);
+  --state-saved-bg:          color-mix(in srgb, var(--accent-green) 8%, transparent);
+  --state-saved-bg-strong:   color-mix(in srgb, var(--accent-green) 18%, transparent);
+  --state-saved-border:      color-mix(in srgb, var(--accent-green) 30%, transparent);
+  --state-saved-text:        color-mix(in srgb, var(--accent-green) 78%, black);
+
+  --state-attention-bg-soft: color-mix(in srgb, var(--ccdc-purple) 7%, transparent);
+  --state-attention-bg:      color-mix(in srgb, var(--ccdc-purple) 18%, transparent);
+  --state-attention-bg-glow: color-mix(in srgb, var(--ccdc-purple) 28%, transparent);
+  --state-attention-border:  color-mix(in srgb, var(--ccdc-purple) 22%, transparent);
+  --state-attention-border-strong: color-mix(in srgb, var(--ccdc-purple) 35%, transparent);
+
+  /* Stitch status (directe tinten — used on .ccdc-status-* utility) */
+  --status-approved-bg:      rgba(16, 185, 129, 0.08);
+  --status-approved-text:    #047857;
+  --status-approved-border:  rgba(16, 185, 129, 0.15);
+  --status-warning-bg:       rgba(245, 158, 11, 0.08);
+  --status-warning-text:     #b45309;
+  --status-warning-border:   rgba(245, 158, 11, 0.15);
+  --status-rejected-bg:      rgba(239, 68, 68, 0.08);
+  --status-rejected-text:    #dc2626;
+  --status-rejected-border:  rgba(239, 68, 68, 0.15);
+
+  /* ─── BORDERS & RADII ────────────────────────────────────────────
+     Borders are always 1px and almost-invisible (4–6% black). Radii
+     follow Apple's pill-and-card scale: 8/12/16/20/pill. Cards land
+     on 16px. Buttons are pill (rounded-full). 30vw radius is reserved
+     for marketing "drop" shapes. */
   --border-default:          rgba(0, 0, 0, 0.06);
-
+  --outline:                 #75777f;
+  --outline-variant:         #c5c6cf;
   --border-radius-sm:        8px;
   --border-radius-md:        12px;
   --border-radius-lg:        16px;
   --border-radius-xl:        20px;
   --ccdc-radius-card:        16px;
   --ccdc-radius-pill:        9999px;
+  --ccdc-radius-drop:        30vw;
 
+  /* ─── SHADOWS ────────────────────────────────────────────────────
+     Two flavors: neutral (.04/.06/.08 black) and navy-tinted (used
+     when an element sits on the navy hero so the shadow keeps its
+     hue). Float shadow is reserved for sticky headers. */
   --shadow-sm:               0 2px  8px  rgba(0, 0, 0, .04), 0 1px 2px rgba(0, 0, 0, .02);
   --shadow-md:               0 4px 16px  rgba(0, 0, 0, .06), 0 2px 4px rgba(0, 0, 0, .02);
   --shadow-lg:               0 8px 32px  rgba(0, 0, 0, .08), 0 4px 8px rgba(0, 0, 0, .02);
@@ -59,24 +150,40 @@
   --shadow-navy-md:          0 4px 16px  rgba(3, 23, 60, .06), 0 2px 4px rgba(3, 23, 60, .02);
   --shadow-navy-lg:          0 8px 32px  rgba(3, 23, 60, .08), 0 4px 8px rgba(3, 23, 60, .02);
   --shadow-navy-xl:          0 20px 50px rgba(3, 23, 60, .04);
+  --shadow-navy-float:       0 40px 60px -15px rgba(3, 23, 60, .06);
 
+  --shadow-ccdc-sm:          0 2px  8px  rgba(3, 23, 60, .06);
+  --shadow-ccdc-md:          0 8px 24px  rgba(3, 23, 60, .08);
+  --shadow-ccdc-lg:          0 16px 48px rgba(3, 23, 60, .12);
+
+  /* Active-card header (navy tint behind expanded dossier item) */
+  --surface-active-header-bg:     color-mix(in srgb, var(--ccdc-navy) 7%, var(--bg-surface));
+  --surface-active-header-border: color-mix(in srgb, var(--ccdc-navy) 14%, transparent);
+
+  /* ─── TYPE ───────────────────────────────────────────────────────
+     DM Sans is the platform face. System fallback covers print/email.
+     There is no serif and no mono in this product. */
   --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "SF Pro Display",
                "Segoe UI", Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
-  --fs-display-xl:  56px;
-  --fs-display-lg:  44px;
-  --fs-display-md:  34px;
-  --fs-heading-lg:  28px;
-  --fs-heading:     24px;
-  --fs-subheading:  20px;
-  --fs-card:        18px;
-  --fs-lead:        17px;
-  --fs-body:        15px;
-  --fs-table:       14px;
-  --fs-caption:     13px;
-  --fs-label:       12px;
+  /* The typographic scale (px). Used both for marketing display sizes
+     and for the strict app scale. Match these EXACTLY when you ship. */
+  --fs-display-xl:  56px;  /* marketing hero h1 desktop */
+  --fs-display-lg:  44px;  /* marketing h1 mid */
+  --fs-display-md:  34px;  /* page title (app + marketing) */
+  --fs-heading-lg:  28px;  /* section heading large */
+  --fs-heading:     24px;  /* section heading */
+  --fs-subheading:  20px;  /* small section heading */
+  --fs-card:        18px;  /* card heading */
+  --fs-lead:        17px;  /* lead paragraph */
+  --fs-body:        15px;  /* body */
+  --fs-table:       14px;  /* table cell */
+  --fs-caption:     13px;  /* caption / secondary body */
+  --fs-label:       12px;  /* uppercase label / kicker */
 
+  /* Line-height + tracking pair-up. Display sizes ride tight; body
+     reads loose. Uppercase labels widen to ~0.04–0.08em. */
   --lh-display:     1.06;
   --lh-heading:     1.10;
   --lh-card:        1.30;
@@ -87,9 +194,12 @@
   --tr-body:        0;
   --tr-label:       0.04em;
   --tr-kicker:      0.06em;
-  --tr-uppercase:   0.18em;
+  --tr-uppercase:   0.18em; /* sidebar group label, footer header */
 }
 
+/* ─── BASE ──────────────────────────────────────────────────────────
+   Box-sizing, body font, antialiasing, scrollbar trim — exactly the
+   stack we ship in prod. ────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 
 html, body { height: 100%; }
@@ -109,6 +219,13 @@ body {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); border-radius: 3px; }
 
+/* Tabular numbers for any money/numeric data */
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* ─── SEMANTIC TYPOGRAPHY ──────────────────────────────────────────
+   Map the production type system onto semantic HTML so designers can
+   write <h1>/<h2>/<p> and get the right thing. Apps override these
+   on a per-page basis if they need a different scale. ───────────── */
 h1, .h1 {
   font-size: var(--fs-display-md);
   font-weight: 700;
@@ -133,23 +250,86 @@ h3, .h3 {
   color: var(--text-primary);
   margin: 0;
 }
+h4, .h4 {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: var(--lh-card);
+  color: var(--text-primary);
+  margin: 0;
+}
 p, .body {
   font-size: var(--fs-body);
   line-height: var(--lh-body);
   color: var(--text-primary);
   margin: 0;
 }
+.caption {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+}
+.label {
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
 .kicker {
+  /* Marketing kicker — magenta, uppercase, sits above an h1/h2 */
   font-size: var(--fs-label);
   font-weight: 600;
   letter-spacing: var(--tr-kicker);
   text-transform: uppercase;
   color: var(--ccdc-magenta);
 }
+.display {
+  /* Marketing hero — bigger than the app's page title */
+  font-size: var(--fs-display-xl);
+  font-weight: 700;
+  line-height: var(--lh-display);
+  letter-spacing: var(--tr-display);
+}
 
+/* ─── BRAND UTILITIES ──────────────────────────────────────────────
+   Bring the production .ccdc-card and .ccdc-gradient-* utility classes
+   so anything we hand-write here matches the React components. */
+.ccdc-card {
+  background: var(--bg-surface);
+  border-radius: var(--ccdc-radius-card);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-default);
+}
+.ccdc-card:hover { box-shadow: var(--shadow-md); }
+
+.ccdc-gradient-text {
+  background: var(--ccdc-gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ccdc-gradient-bg     { background: var(--ccdc-gradient-accent); }
+.ccdc-gradient-border { border-image: var(--ccdc-gradient-accent) 1; }
+
+/* ─── MOTION ───────────────────────────────────────────────────────
+   Keep animation subtle: a 200ms fade or 150ms color-shift on hover,
+   2.2–2.4s soft-pulse for "still waiting for you" states. No bounce,
+   no spring, no parallax. Respect prefers-reduced-motion. ──────── */
 @keyframes ccdc-fade-in    { from { opacity: 0; } to { opacity: 1; } }
 @keyframes ccdc-fade-down  { from { transform: translateY(-8px); opacity: 0; }
                              to   { transform: translateY(0);    opacity: 1; } }
+@keyframes ccdc-pulse      { 0%,100% { opacity: .6; transform: scale(1); }
+                             50%     { opacity: 1;  transform: scale(1.05); } }
+@keyframes intake-soft-pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes ccdc-shimmer    { 0% { background-position: 200% 0; }
+                             100% { background-position: -200% 0; } }
+
+.intake-soft-pulse { animation: intake-soft-pulse 2.4s ease-in-out infinite; }
+.ccdc-shimmer {
+  background: linear-gradient(90deg, #c0187a 0%, #6b35a8 50%, #c0187a 100%);
+  background-size: 200% 100%;
+  animation: ccdc-shimmer 2s linear infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .intake-soft-pulse, .ccdc-shimmer { animation: none; opacity: .7; }
