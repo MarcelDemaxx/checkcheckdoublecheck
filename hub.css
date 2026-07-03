@@ -40,6 +40,7 @@ body {
   display: flex; align-items: center; justify-content: space-between;
   color: #fff;
 }
+/* The brand mark is the dot itself — the signature motif, no wordmark. */
 .brand {
   display: inline-flex; align-items: center; gap: 0;
   color: inherit; text-decoration: none;
@@ -142,6 +143,9 @@ body {
   box-shadow: 0 0 12px rgba(255, 79, 163, 0.6);
 }
 
+/* The rotating oneliner. Frame ("We" / "so you can") stays fixed; the two
+   fills sit at the end of each line so width changes never reflow mid-line.
+   The magenta dot stays glued to the final verb — the brand signature. */
 h1.hero-title {
   font-size: clamp(44px, 6.6vw, 96px);
   font-weight: 700;
@@ -190,6 +194,7 @@ h1.hero-title {
   text-wrap: pretty;
 }
 
+/* hero "currently" strip — plain text, no links, no domains */
 .hero-now {
   display: flex; align-items: baseline; gap: 18px;
   margin-top: 84px;
@@ -264,7 +269,7 @@ h2.section-title {
 }
 .section-navy .section-lead { color: rgba(255, 255, 255, 0.72); }
 
-/* ─── "what we do" — three roles ─────────────────────────────────────── */
+/* ─── "what I do" — three roles as narrative principle, not a service grid ─ */
 .roles {
   display: grid;
   grid-template-columns: 0.92fr 1.08fr;
@@ -325,7 +330,7 @@ h2.section-title {
   flex-shrink: 0;
 }
 
-/* ─── "how we work" — narrative prose on navy ────────────────────────── */
+/* ─── "how I work" — narrative prose on navy, not a step grid ──────────── */
 .prose {
   margin-top: 56px;
   display: grid;
@@ -365,6 +370,7 @@ h2.section-title {
   padding: 32px 30px 30px;
   display: flex; flex-direction: column;
 }
+/* the dot — the hub's signature marker, top-right */
 .work-card::before {
   content: "";
   position: absolute;
@@ -400,6 +406,7 @@ h2.section-title {
   margin: 0;
   text-wrap: pretty;
 }
+.work-body strong { color: var(--text-primary); font-weight: 600; }
 
 .work-note {
   margin-top: 40px;
@@ -416,7 +423,11 @@ h2.section-title {
   margin-top: 0.55em;
 }
 
-/* ─── track record ───────────────────────────────────────────────────── */
+/* ─── track record — restrained, one story, no cards ──────────────────── */
+.record {
+  margin-top: 52px;
+  max-width: 30ch;
+}
 .record-statement {
   font-size: clamp(22px, 2.4vw, 31px);
   font-weight: 500;
@@ -444,9 +455,10 @@ h2.section-title {
   text-wrap: pretty;
 }
 .record-body p strong { color: var(--text-primary); font-weight: 600; }
+/* override the 30ch clamp on the wrapper for the two-column body */
 .record-wide { max-width: none; }
 
-/* ─── closing / contact ──────────────────────────────────────────────── */
+/* ─── closing / contact ───────────────────────────────────────────────── */
 .closing {
   padding: 148px 0;
   background: var(--ccdc-navy);
@@ -514,7 +526,7 @@ h2.section-title {
   color: rgba(255, 255, 255, 0.45);
 }
 
-/* ─── footer ─────────────────────────────────────────────────────────── */
+/* ─── footer ──────────────────────────────────────────────────────────── */
 footer {
   background: var(--ccdc-navy);
   color: rgba(255, 255, 255, 0.55);
@@ -554,7 +566,7 @@ footer {
   vertical-align: middle;
 }
 
-/* ─── scroll reveal ──────────────────────────────────────────────────── */
+/* ─── scroll reveal ───────────────────────────────────────────────────── */
 .reveal {
   opacity: 0; transform: translateY(16px);
   transition: opacity 650ms ease, transform 650ms ease;

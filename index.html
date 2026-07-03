@@ -4,19 +4,21 @@
 <meta charset="utf-8" />
 <title>A helping hand, from idea to realisation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="We help other entrepreneurs and initiatives go from idea to realisation, by building, by backing and by coaching." />
+<meta name="description" content="A personal hub of entrepreneurs who help other entrepreneurs and initiatives go from idea to realisation; by building, by backing, and by coaching." />
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="colors_and_type.css" />
 <link rel="stylesheet" href="hub.css" />
+<link rel="stylesheet" href="hub-v3.css" />
 <link rel="preload" href="fonts/DMSans-VariableFont_opsz_wght.ttf" as="font" type="font/ttf" crossorigin />
 <script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
+<!-- ╔══ NAV ═════════════════════════════════════════════════════════════╗ -->
+<nav class="nav" id="nav" data-screen-label="Nav">
   <div class="wrap nav-inner">
     <a href="#top" class="brand" aria-label="Home">
       <span class="brand-dot" aria-hidden="true"></span>
@@ -34,46 +36,117 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="top">
+<!-- ╔══ HERO ════════════════════════════════════════════════════════════╗
+     Copy left (rotating oneliner, kept from v1). Right: a living
+     "journey card" — one project travelling from idea to realisation,
+     with the three roles floating around it as party chips. The mock
+     animates: steps complete over time, then the journey restarts.
+     ─────────────────────────────────────────────────────────────────── -->
+<section class="hero" id="top" data-screen-label="01 Hero">
   <div class="hero-grid-bg" aria-hidden="true"></div>
   <div class="wrap hero-content">
+    <div class="hero-grid">
 
-    <span class="eyebrow">
-      <span class="dot" aria-hidden="true"></span>
-      <span data-i18n="hero.eyebrow">A helping hand, from idea to realisation</span>
-    </span>
+      <div class="hero-copy">
+        <span class="eyebrow">
+          <span class="dot" aria-hidden="true"></span>
+          <span data-i18n="hero.eyebrow">A helping hand, from idea to realisation</span>
+        </span>
 
-    <h1 class="hero-title" id="oneliner">
-      <span class="line">
-        <span data-i18n="hero.we">We&nbsp;</span><span class="fill" id="fillA"><em>help the builders</em></span>
-      </span>
-      <span class="line line-2">
-        <span data-i18n="hero.so">so you can&nbsp;</span><span class="fill" id="fillB"><em>build</em></span><span class="verb-dot" aria-hidden="true"></span>
-      </span>
-    </h1>
+        <h1 class="hero-title" id="oneliner">
+          <span class="line">
+            <span data-i18n="hero.we">We&nbsp;</span><span class="fill" id="fillA"><em>help the builders</em></span>
+          </span>
+          <span class="line line-2">
+            <span data-i18n="hero.so">so you can&nbsp;</span><span class="fill" id="fillB"><em>build</em></span><span class="verb-dot" aria-hidden="true"></span>
+          </span>
+        </h1>
 
-    <p class="hero-lead" data-i18n="hero.lead">
-      We help other people's ideas become real. Some we build ourselves. Others we back with money and time. And some founders just need someone in the room who has done it before, sitting next to them until the thing is actually finished.
-    </p>
+        <p class="hero-lead" data-i18n="hero.lead">
+          We help other people's ideas become real. Some we build ourselves. Others we back with money and time. And some founders just need someone in the room who has done it before, sitting next to them until the thing is actually finished.
+        </p>
+      </div>
+
+      <div class="hero-visual">
+        <div class="journey-card" id="journeyCard">
+          <div class="journey-head">
+            <div>
+              <div class="journey-id" data-i18n="j.id">A project, somewhere between idea and real</div>
+              <div class="journey-title" data-i18n="j.title">From first sketch to standing on its own</div>
+            </div>
+            <span class="journey-badge"><span class="b-dot" aria-hidden="true"></span> <span id="journeyBadge" data-i18n="j.badge">In progress</span></span>
+          </div>
+
+          <ul class="journey-rail" id="journeyRail">
+            <li class="j-step" data-step="0">
+              <span class="node">1</span>
+              <div>
+                <div class="j-label" data-i18n="j.s1">The idea</div>
+                <div class="j-sub" data-i18n="j.s1s">A napkin, a conversation, a hunch</div>
+              </div>
+            </li>
+            <li class="j-step" data-step="1">
+              <span class="node">2</span>
+              <div>
+                <div class="j-label" data-i18n="j.s2">The awkward questions</div>
+                <div class="j-sub" data-i18n="j.s2s">Is it real? Who pays for it? Why you?</div>
+              </div>
+            </li>
+            <li class="j-step" data-step="2">
+              <span class="node">3</span>
+              <div>
+                <div class="j-label" data-i18n="j.s3">Hands dirty</div>
+                <div class="j-sub" data-i18n="j.s3s">Product, customers, money; the real work</div>
+              </div>
+            </li>
+            <li class="j-step" data-step="3">
+              <span class="node">4</span>
+              <div>
+                <div class="j-label" data-i18n="j.s4">First customers</div>
+                <div class="j-sub" data-i18n="j.s4s">The thing meets the world</div>
+              </div>
+            </li>
+            <li class="j-step" data-step="4">
+              <span class="node">5</span>
+              <div>
+                <div class="j-label" data-i18n="j.s5">Standing on its own</div>
+                <div class="j-sub" data-i18n="j.s5s">It works without us; that is the point</div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="journey-ribbon" id="journeyRibbon" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="journey-foot">
+            <span id="journeyPhase" data-i18n="j.phase">Step 3 of 5</span>
+            <span data-i18n="j.updated">Moving, step by step</span>
+          </div>
+        </div>
+
+        <div class="role-chip chip-1"><span class="avatar av-mag">B</span><span data-i18n="j.chip1">We build</span></div>
+        <div class="role-chip chip-2"><span class="avatar av-pur">B</span><span data-i18n="j.chip2">We back</span></div>
+        <div class="role-chip chip-3"><span class="avatar av-blu">C</span><span data-i18n="j.chip3">We coach</span></div>
+      </div>
+
+    </div>
 
     <div class="hero-now" aria-label="Currently">
       <span class="hero-now-label" data-i18n="hero.now_label">Currently</span>
       <ul class="hero-now-list">
-        <li><span class="dot" aria-hidden="true"></span> CCDC</li>
-        <li><span class="dot" aria-hidden="true"></span> CCDC Real Estate</li>
+        <li><span class="dot" aria-hidden="true"></span> KozijnFlow</li>
+        <li><span class="dot" aria-hidden="true"></span> Real Estate</li>
         <li><span class="dot" aria-hidden="true"></span> onlineCIO</li>
-        <li><span class="dot" aria-hidden="true"></span> thnx</li>
+        <li><span class="dot" aria-hidden="true"></span> Tags integration</li>
         <li><span class="dot" aria-hidden="true"></span> In and Out</li>
         <li><span class="dot" aria-hidden="true"></span> BiedadviesApp</li>
       </ul>
     </div>
-
   </div>
 </section>
 
-<!-- WHAT WE DO -->
-<section class="section section-card" id="what">
+<!-- ╔══ WHAT WE DO ══════════════════════════════════════════════════════╗ -->
+<section class="section section-card" id="what" data-screen-label="02 What we do">
   <div class="wrap">
     <div class="roles">
 
@@ -94,7 +167,8 @@
       <div class="roles-rail reveal">
 
         <div class="role">
-          <span class="role-label"><span class="num">01</span> <span data-i18n="what.r1_label">Build</span></span>
+          <span class="icon-pill tone-magenta"><i data-lucide="hammer"></i></span>
+          <span class="role-label role-head"><span class="num">01</span> <span data-i18n="what.r1_label">Build</span></span>
           <h3 data-i18n="what.r1_title">Some ideas we take on <span class="accent">ourselves</span>.</h3>
           <p data-i18n="what.r1_body">
             We start the company, ship the product, and run it until it can stand without us. The projects below are ours, or partly ours, and most of them are still being built right now.
@@ -102,7 +176,8 @@
         </div>
 
         <div class="role">
-          <span class="role-label"><span class="num">02</span> <span data-i18n="what.r2_label">Back</span></span>
+          <span class="icon-pill tone-purple"><i data-lucide="handshake"></i></span>
+          <span class="role-label role-head"><span class="num">02</span> <span data-i18n="what.r2_label">Back</span></span>
           <h3 data-i18n="what.r2_title">Some ideas belong to <span class="accent">someone else</span>.</h3>
           <p data-i18n="what.r2_body">
             We put in money, time and the scars of having done it before, and we stay involved where that actually helps. Not a name on a cap table; someone you can call when something breaks.
@@ -110,7 +185,8 @@
         </div>
 
         <div class="role">
-          <span class="role-label"><span class="num">03</span> <span data-i18n="what.r3_label">Coach</span></span>
+          <span class="icon-pill tone-blue"><i data-lucide="compass"></i></span>
+          <span class="role-label role-head"><span class="num">03</span> <span data-i18n="what.r3_label">Coach</span></span>
           <h3 data-i18n="what.r3_title">Some founders just need a <span class="accent">hand</span>.</h3>
           <p data-i18n="what.r3_body">
             So we sit next to them, week after week, on the real decisions and the boring ones, until the plan turns into something that holds up. No reports, no theatre; just the work.
@@ -123,35 +199,57 @@
   </div>
 </section>
 
-<!-- HOW WE WORK -->
-<section class="section section-navy" id="how">
+<!-- ╔══ HOW WE WORK ═════════════════════════════════════════════════════╗
+     The prose from v1 condensed onto a four-dot timeline,
+     plus one plain-spoken quote card.
+     ─────────────────────────────────────────────────────────────────── -->
+<section class="section section-navy" id="how" data-screen-label="03 How we work">
   <div class="wrap">
     <div class="reveal" style="max-width: 760px;">
       <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="how.kicker">How we work</span></span>
       <h2 class="section-title" data-i18n="how.title">
         It starts with a conversation, not a pitch deck.
       </h2>
+      <p class="section-lead" data-i18n="how.lead">
+        Someone has an idea, or a mess, or a half-built thing that stalled. From there, the helping hand works roughly like this.
+      </p>
     </div>
 
-    <div class="prose reveal">
-      <p data-i18n="how.p1">
-        <span class="lead-cap">Someone has an idea, or a mess, or a half-built thing that stalled.</span> We listen, we ask the awkward questions, and together we work out whether we can actually help. If we cannot, we will say so, and point you somewhere better.
-      </p>
-      <p data-i18n="how.p2">
-        Then we get our hands dirty. We are not the kind of help that writes a report and leaves. We stay close to the work that decides whether something lives: the product, the customers, the money, and the unglamorous parts in between.
-      </p>
-      <p data-i18n="how.p3">
-        When it helps to build, we build. When it helps to step back and let you lead, we step back. The point is never to make ourselves look important; it is to get the thing standing on its own feet.
-      </p>
-      <p data-i18n="how.p4">
-        And we say what we think, plainly. If something is not working, you will hear it from us early, while it is still cheap to fix. If it is working, we will help you push. No jargon, no posturing; just an honest hand on the work.
-      </p>
+    <div class="how-timeline reveal">
+      <div class="how-step">
+        <span class="dot" aria-hidden="true"></span>
+        <h3 data-i18n="how.t1">We listen first</h3>
+        <p data-i18n="how.t1_body">We ask the awkward questions, and together we work out whether we can actually help. If we cannot, we say so, and point you somewhere better.</p>
+      </div>
+      <div class="how-step">
+        <span class="dot" aria-hidden="true"></span>
+        <h3 data-i18n="how.t2">Then hands get dirty</h3>
+        <p data-i18n="how.t2_body">We are not the kind of help that writes a report and leaves. We stay close to what decides whether something lives: the product, the customers, the money.</p>
+      </div>
+      <div class="how-step">
+        <span class="dot" aria-hidden="true"></span>
+        <h3 data-i18n="how.t3">We build, or step back</h3>
+        <p data-i18n="how.t3_body">When it helps to build, we build. When it helps to let you lead, we step back. The point is to get the thing standing on its own feet.</p>
+      </div>
+      <div class="how-step">
+        <span class="dot" aria-hidden="true"></span>
+        <h3 data-i18n="how.t4">And we speak plainly</h3>
+        <p data-i18n="how.t4_body">If something is not working, you hear it from us early, while it is still cheap to fix. If it is working, we help you push.</p>
+      </div>
+    </div>
+
+    <div class="how-quote reveal">
+      <span class="q-mark" data-i18n="how.q_label">The short version</span>
+      <p data-i18n="how.quote">No jargon, no posturing, no theatre. Just an honest hand on the work, for as long as the work needs it.</p>
     </div>
   </div>
 </section>
 
-<!-- THE WORK -->
-<section class="section section-canvas" id="work">
+<!-- ╔══ THE WORK ════════════════════════════════════════════════════════╗
+     Six projects as proof. Each card opens with a small living vignette
+     built from the product's own story — no links, no domains, no CTAs.
+     ─────────────────────────────────────────────────────────────────── -->
+<section class="section section-canvas" id="work" data-screen-label="04 The work">
   <div class="wrap">
 
     <div class="reveal" style="max-width: 760px;">
@@ -166,66 +264,131 @@
 
     <div class="work-grid">
 
-      <article class="work-card reveal">
-        <h3 class="work-name">CCDC</h3>
-        <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_live">Live</span></span>
-        <p class="work-body" data-i18n="work.ccdc_body">
-          Verifies documents and transactions so parties can trust each other without having to check everything themselves. For companies with mandatory checks, and for people making a large purchase.
-        </p>
+      <article class="work-card reveal" data-screen-label="04a KozijnFlow">
+        <div class="vg" aria-hidden="true">
+          <div class="vg-panel">
+            <div class="vg-row"><i data-lucide="check-circle-2" class="ok"></i> <span data-i18n="vg.ccdc1">Quote signed</span></div>
+            <div class="vg-row"><i data-lucide="check-circle-2" class="ok"></i> <span data-i18n="vg.ccdc2">Planned</span></div>
+            <div class="vg-row"><i data-lucide="circle-dot" class="busy pulse"></i> <span data-i18n="vg.ccdc3">Work order in progress</span></div>
+          </div>
+          <div class="vg-float" style="top: 14px; right: 16px;"><i data-lucide="smartphone"></i> <span data-i18n="vg.ccdc4">Works offline</span></div>
+        </div>
+        <div class="work-card-inner">
+          <div class="work-title-row"><h3 class="work-name">KozijnFlow</h3><span class="work-logo" title="KozijnFlow"><img src="assets/logo-kozijnflow.svg" alt=""></span></div>
+          <span class="work-status is-quiet"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_live">In development</span></span>
+          <p class="work-body" data-i18n="work.ccdc_body">
+            Software for Dutch window frame companies that handles the whole chain in one system; from lead and sales visit to quote, planning, work order, handover and invoicing. Back office, iPad and phone, and it keeps working offline on the building site.
+          </p>
+        </div>
       </article>
 
-      <article class="work-card reveal">
-        <h3 class="work-name">CCDC Real Estate</h3>
-        <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_pilot">Andalusia pilot</span></span>
-        <p class="work-body" data-i18n="work.re_body">
-          The real estate version of CCDC, for buying and selling in Spain. Agent, buyer, seller and lawyers in one dossier, from the first offer to the escritura.
-        </p>
+      <article class="work-card reveal d1" data-screen-label="04b Real Estate">
+        <div class="vg" aria-hidden="true">
+          <div class="vg-panel">
+            <div class="vg-row"><i data-lucide="check-circle-2" class="ok"></i> <span data-i18n="vg.re1">First offer</span></div>
+            <div class="vg-row"><i data-lucide="circle-dot" class="busy pulse"></i> <span data-i18n="vg.re2">With the lawyers</span></div>
+            <div class="vg-row" style="opacity: 0.5;"><i data-lucide="circle"></i> <span data-i18n="vg.re3">Escritura</span></div>
+            <div class="vg-bar"><span class="done"></span><span class="now"></span><span></span></div>
+          </div>
+          <div class="vg-float" style="bottom: 14px; right: 14px; animation-delay: 1.4s;"><i data-lucide="users-round"></i> <span data-i18n="vg.re4">4 parties, 1 dossier</span></div>
+        </div>
+        <div class="work-card-inner">
+          <div class="work-title-row"><h3 class="work-name">Real Estate</h3><span class="work-logo" title="Real Estate"><img src="assets/ccdc-mark.svg" alt=""></span></div>
+          <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_pilot">Andalusia pilot</span></span>
+          <p class="work-body" data-i18n="work.re_body">
+            One dossier for buying and selling property in Spain. Agent, buyer, seller and lawyers work together, from the first offer to the escritura.
+          </p>
+        </div>
       </article>
 
-      <article class="work-card reveal">
-        <h3 class="work-name">onlineCIO</h3>
-        <span class="work-status is-quiet"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_dev">In development</span></span>
-        <p class="work-body" data-i18n="work.cio_body">
-          Information management, business process management and IT direction, offered as a service to school boards in foundational education. For boards without an information manager of their own.
-        </p>
+      <article class="work-card reveal d2" data-screen-label="04c onlineCIO">
+        <div class="vg" aria-hidden="true">
+          <div class="vg-panel" style="display: flex; flex-direction: column; gap: 7px; align-items: flex-start;">
+            <span class="vg-chip"><span class="c-dot" aria-hidden="true"></span> <span data-i18n="vg.cio1">Information management</span></span>
+            <span class="vg-chip neutral"><span class="c-dot" aria-hidden="true"></span> <span data-i18n="vg.cio2">Business processes</span></span>
+            <span class="vg-chip neutral"><span class="c-dot" aria-hidden="true"></span> <span data-i18n="vg.cio3">IT direction</span></span>
+          </div>
+          <div class="vg-float" style="top: 16px; right: 14px; animation-delay: 0.8s;"><i data-lucide="school"></i> <span data-i18n="vg.cio4">For school boards</span></div>
+        </div>
+        <div class="work-card-inner">
+          <div class="work-title-row"><h3 class="work-name">onlineCIO</h3><span class="work-logo" title="onlineCIO"><img src="assets/logo-onlinecio-v2.png" alt=""></span></div>
+          <span class="work-status is-quiet"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_dev">In development</span></span>
+          <p class="work-body" data-i18n="work.cio_body">
+            Information management, business process management and IT direction, offered as a service to school boards in foundational education. For boards without an information manager of their own.
+          </p>
+        </div>
       </article>
 
-      <article class="work-card reveal">
-        <h3 class="work-name">thnx</h3>
-        <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_live2">Live</span></span>
-        <p class="work-body" data-i18n="work.thnx_body">
-          Smart tags for lost things. The finder scans, the owner gets a message. For schools and their community, and for anyone who wants their things back. It also brings in money for a good cause or the school community.
-        </p>
+      <article class="work-card reveal d3" data-screen-label="04d Tags integration">
+        <div class="vg" aria-hidden="true">
+          <div class="vg-tag">
+            <span class="vg-scanline" aria-hidden="true"></span>
+            <span class="tag-grid" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </span>
+          </div>
+          <div class="vg-float" style="top: 18px; right: 14px;"><i data-lucide="bell-ring"></i> <span data-i18n="vg.thnx1">Object recognised</span></div>
+          <div class="vg-float" style="bottom: 16px; left: 16px; animation-delay: 2s;"><i data-lucide="scan-line"></i> <span data-i18n="vg.thnx2">Step handled</span></div>
+        </div>
+        <div class="work-card-inner">
+          <div class="work-title-row"><h3 class="work-name">Tags integration</h3><span class="work-logo" title="Tags integration"><img src="assets/logo-tags.svg" alt=""></span></div>
+          <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_live2">Live</span></span>
+          <p class="work-body" data-i18n="work.thnx_body">
+            Smart tags that identify things, belongings and objects in real life. Built to integrate into existing systems, so that one scan is enough to recognise something or to handle a step in a process.
+          </p>
+        </div>
       </article>
 
-      <article class="work-card reveal">
-        <h3 class="work-name">In and Out</h3>
-        <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_soto">Sotogrande</span></span>
-        <p class="work-body" data-i18n="work.inout_body">
-          A local media and events platform that connects entrepreneurs, residents and visitors in an area, through a curated guide, events and its own magazine. The first location is Sotogrande.
-        </p>
+      <article class="work-card reveal d4" data-screen-label="04e In and Out">
+        <div class="vg" aria-hidden="true">
+          <div class="vg-mag">
+            <span class="m-title">In <em>&amp;</em> Out</span>
+            <span class="m-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+          </div>
+          <div class="vg-float" style="top: 16px; right: 14px;"><i data-lucide="map-pin"></i> Sotogrande</div>
+          <div class="vg-float" style="bottom: 16px; right: 26px; animation-delay: 1.8s;"><i data-lucide="calendar-days"></i> <span data-i18n="vg.io1">Events</span></div>
+        </div>
+        <div class="work-card-inner">
+          <div class="work-title-row"><h3 class="work-name">In and Out</h3><span class="work-logo" title="In and Out"><img src="assets/logo-inandout.png" alt=""></span></div>
+          <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_soto">Sotogrande</span></span>
+          <p class="work-body" data-i18n="work.inout_body">
+            A local media and events platform that connects entrepreneurs, residents and visitors in an area, through a curated guide, events and its own magazine. The first location is Sotogrande.
+          </p>
+        </div>
       </article>
 
-      <article class="work-card reveal">
-        <h3 class="work-name">BiedadviesApp</h3>
-        <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_live3">Live</span></span>
-        <p class="work-body" data-i18n="work.bied_body">
-          A backoffice and mobility platform for car dealers, from buying at auctions to selling. It gives them grip on the whole business from one place, at the office or on the road.
-        </p>
+      <article class="work-card reveal d5" data-screen-label="04f BiedadviesApp">
+        <div class="vg" aria-hidden="true">
+          <div class="vg-panel">
+            <div class="vg-row"><i data-lucide="check-circle-2" class="ok"></i> <span data-i18n="vg.bied1">Bought at auction</span></div>
+            <div class="vg-row"><i data-lucide="circle-dot" class="busy pulse"></i> <span data-i18n="vg.bied2">In the back office</span></div>
+            <div class="vg-row" style="opacity: 0.5;"><i data-lucide="circle"></i> <span data-i18n="vg.bied3">Sold</span></div>
+          </div>
+          <div class="vg-float" style="top: 14px; right: 14px; animation-delay: 1.1s;"><i data-lucide="smartphone"></i> <span data-i18n="vg.bied4">Also on the road</span></div>
+        </div>
+        <div class="work-card-inner">
+          <div class="work-title-row"><h3 class="work-name">BiedadviesApp</h3><span class="work-logo" title="BiedadviesApp"><img src="assets/logo-biedadvies.svg" alt=""></span></div>
+          <span class="work-status"><span class="s-dot" aria-hidden="true"></span> <span data-i18n="work.s_live3">Live</span></span>
+          <p class="work-body" data-i18n="work.bied_body">
+            A backoffice and mobility platform for car dealers, from buying at auctions to selling. It gives them grip on the whole business from one place, at the office or on the road.
+          </p>
+        </div>
       </article>
 
     </div>
 
     <p class="work-note reveal">
       <span class="dot" aria-hidden="true"></span>
-      <span data-i18n="work.note">Different sectors, one way of working: walk it across, step by step. Each of these started as someone's idea and is being walked, step by step, toward something real.</span>
+      <span data-i18n="work.note">Different sectors, the same way of working. Each of these started as someone's idea and is being walked, step by step, toward something real.</span>
     </p>
 
   </div>
 </section>
 
-<!-- TRACK RECORD -->
-<section class="section section-soft">
+<!-- ╔══ TRACK RECORD ════════════════════════════════════════════════════╗ -->
+<section class="section section-soft" data-screen-label="05 Track record">
   <div class="wrap">
     <div class="record-wide">
       <div class="reveal">
@@ -233,6 +396,18 @@
         <p class="record-statement" data-i18n="record.statement">
           None of this is a first attempt. <span class="soft">There is a long run of building underneath it.</span>
         </p>
+      </div>
+
+      <div class="record-rail reveal" aria-hidden="true">
+        <div class="record-node">
+          <span class="rn-dot"></span>
+          <span class="rn-label">Opleidingsplatform.nl · Autofox</span>
+        </div>
+        <span class="record-line"></span>
+        <div class="record-node now">
+          <span class="rn-dot"></span>
+          <span class="rn-label" data-i18n="record.now">Everything on this page</span>
+        </div>
       </div>
 
       <div class="record-body reveal">
@@ -247,8 +422,8 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="closing" id="contact">
+<!-- ╔══ CLOSING / CONTACT ═══════════════════════════════════════════════╗ -->
+<section class="closing" id="contact" data-screen-label="06 Contact">
   <div class="wrap">
     <span class="kicker"><span class="dot" aria-hidden="true"></span> <span data-i18n="contact.kicker">Let's talk</span></span>
     <h2 data-i18n="contact.title">Building something? Stuck on something?</h2>
@@ -256,20 +431,20 @@
       Whether it is an idea on the back of a napkin or a company that has quietly stalled, we are happy to think along. No pitch deck required, and no obligation; just a conversation to see if we can help.
     </p>
     <div class="closing-actions">
-      <a href="mailto:webcontact@checkcheckdoublecheck.com" class="btn-pill btn-primary" data-i18n="contact.cta">
-        Start a conversation
+      <a href="mailto:webcontact@checkcheckdoublecheck.com" class="btn-pill btn-primary">
+        <span data-i18n="contact.cta">Start a conversation</span>
         <i data-lucide="arrow-up-right" style="width:18px;height:18px;"></i>
       </a>
       <a href="#work" class="btn-pill btn-ghost" data-i18n="contact.cta2">
         See the work first
       </a>
     </div>
-    <p class="closing-meta" data-i18n="contact.meta">Based in the Netherlands</p>
+    <p class="closing-meta" data-i18n="contact.meta">Based in the Netherlands and in Spain</p>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
+<!-- ╔══ FOOTER ══════════════════════════════════════════════════════════╗ -->
+<footer data-screen-label="07 Footer">
   <div class="wrap">
     <div class="foot">
       <div class="foot-brand">
@@ -286,37 +461,72 @@
   </div>
 </footer>
 
-<!-- PAGE SCRIPTS -->
+
+<!-- ─── PAGE SCRIPTS ──────────────────────────────────────────────────── -->
 <script>
   if (window.lucide) window.lucide.createIcons();
 
-  // nav scroll
+  // ─── nav scroll ───────────────────────────────────────────────────────
   (function () {
-    var nav = document.getElementById('nav');
-    var onScroll = function () {
-      if (window.scrollY > 32) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
-    };
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 32);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
 
-  // scroll reveal
+  // ─── scroll reveal ────────────────────────────────────────────────────
   (function () {
     if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
       return;
     }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   })();
 
-  // i18n
-  var I18N = {
+  // ─── hero journey animation ──────────────────────────────────────────
+  // The mock walks a project from idea to realisation, then starts over.
+  (function () {
+    const steps = Array.from(document.querySelectorAll('#journeyRail .j-step'));
+    const ribbon = Array.from(document.querySelectorAll('#journeyRibbon span'));
+    const phaseEl = document.getElementById('journeyPhase');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 2;
+
+    function render() {
+      steps.forEach((s, i) => {
+        s.classList.toggle('done', i < current);
+        s.classList.toggle('active', i === current);
+        const node = s.querySelector('.node');
+        node.innerHTML = i < current
+          ? '<i data-lucide="check" style="width:13px;height:13px;"></i>'
+          : (i === current ? '<i data-lucide="dot" style="width:18px;height:18px;"></i>' : String(i + 1));
+      });
+      ribbon.forEach((r, i) => {
+        r.classList.toggle('done', i < current);
+        r.classList.toggle('now', i === current);
+      });
+      const tpl = (window.__currentLang === 'nl') ? 'Stap {n} van 5' : 'Step {n} of 5';
+      phaseEl.textContent = tpl.replace('{n}', String(current + 1));
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    render();
+    if (!reduced) {
+      setInterval(() => {
+        current = (current + 1) % steps.length;
+        render();
+      }, 3400);
+    }
+    window.__renderJourney = render;
+  })();
+
+  // ─── i18n ─────────────────────────────────────────────────────────────
+  const I18N = {
     nl: {
       'nav.what': 'Wat we doen',
       'nav.how': 'Hoe we werken',
@@ -327,6 +537,24 @@
       'hero.so': 'zodat jij kunt&nbsp;',
       'hero.lead': 'Wij helpen de idee\u00ebn van anderen werkelijkheid worden. Sommige bouwen we zelf. Andere steunen we met geld en tijd. En sommige ondernemers hebben gewoon iemand in de kamer nodig die het eerder heeft gedaan, die naast ze blijft zitten tot het ding echt af is.',
       'hero.now_label': 'Nu bezig met',
+      'j.id': 'Een project, ergens tussen idee en echt',
+      'j.title': 'Van eerste schets tot op eigen benen',
+      'j.badge': 'Onderweg',
+      'j.s1': 'Het idee',
+      'j.s1s': 'Een bierviltje, een gesprek, een vermoeden',
+      'j.s2': 'De ongemakkelijke vragen',
+      'j.s2s': 'Is het echt? Wie betaalt ervoor? Waarom jij?',
+      'j.s3': 'Handen uit de mouwen',
+      'j.s3s': 'Product, klanten, geld; het echte werk',
+      'j.s4': 'Eerste klanten',
+      'j.s4s': 'Het ding ontmoet de wereld',
+      'j.s5': 'Op eigen benen',
+      'j.s5s': 'Het werkt zonder ons; dat is het punt',
+      'j.phase': 'Stap 3 van 5',
+      'j.updated': 'In beweging, stap voor stap',
+      'j.chip1': 'Wij bouwen',
+      'j.chip2': 'Wij steunen',
+      'j.chip3': 'Wij coachen',
       'what.kicker': 'Wat we doen',
       'what.title': 'Wij helpen goede idee\u00ebn echte dingen worden.',
       'what.lead': 'De meeste idee\u00ebn sneuvelen ergens tussen de eerste schets en de dag dat ze op eigen benen moeten staan. Juist in dat gat zijn wij nuttig. Soms zijn wij degenen die bouwen; soms is het idee van jou en helpen we het alleen aan de overkant.',
@@ -342,28 +570,55 @@
       'what.r3_body': 'Dus wij zitten naast ze, week na week, bij de echte beslissingen en de saaie, tot het plan iets wordt dat overeind blijft. Geen rapporten, geen theater; gewoon het werk.',
       'how.kicker': 'Hoe we werken',
       'how.title': 'Het begint met een gesprek, niet met een pitch deck.',
-      'how.p1': '<span class="lead-cap">Iemand heeft een idee, of een rommeltje, of een half gebouwd ding dat is blijven steken.</span> Wij luisteren, we stellen de ongemakkelijke vragen, en samen zoeken we uit of we echt kunnen helpen. Als dat niet zo is, zeggen we het, en wijzen we je ergens beters naartoe.',
-      'how.p2': 'Daarna steken wij onze handen uit de mouwen. Wij zijn niet het soort hulp dat een rapport schrijft en weer vertrekt. We blijven dicht bij het werk dat bepaalt of iets leeft: het product, de klanten, het geld, en de ondankbare stukken daartussen.',
-      'how.p3': 'Als het helpt om te bouwen, bouwen we. Als het helpt om een stap terug te doen en jou te laten leiden, doen we een stap terug. Het doel is nooit om onszelf belangrijk te laten lijken; het is om het ding op eigen benen te krijgen.',
-      'how.p4': 'En wij zeggen wat we denken, gewoon recht voor zijn raap. Als iets niet werkt, hoor je het vroeg van ons, terwijl het nog goedkoop te repareren is. Als het wel werkt, helpen we je doordrukken. Geen jargon, geen poespas; gewoon een eerlijke hand op het werk.',
+      'how.lead': 'Iemand heeft een idee, of een rommeltje, of een half gebouwd ding dat is blijven steken. Vanaf daar werkt de helpende hand ongeveer zo.',
+      'how.t1': 'We luisteren eerst',
+      'how.t1_body': 'We stellen de ongemakkelijke vragen, en samen zoeken we uit of we echt kunnen helpen. Als dat niet zo is, zeggen we het, en wijzen we je ergens beters naartoe.',
+      'how.t2': 'Dan gaan de handen uit de mouwen',
+      'how.t2_body': 'Wij zijn niet het soort hulp dat een rapport schrijft en weer vertrekt. We blijven dicht bij wat bepaalt of iets leeft: het product, de klanten, het geld.',
+      'how.t3': 'We bouwen, of doen een stap terug',
+      'how.t3_body': 'Als het helpt om te bouwen, bouwen we. Als het helpt om jou te laten leiden, doen we een stap terug. Het doel is het ding op eigen benen krijgen.',
+      'how.t4': 'En we zeggen het gewoon',
+      'how.t4_body': 'Als iets niet werkt, hoor je het vroeg van ons, terwijl het nog goedkoop te repareren is. Als het wel werkt, helpen we je doordrukken.',
+      'how.q_label': 'De korte versie',
+      'how.quote': 'Geen jargon, geen poespas, geen theater. Gewoon een eerlijke hand op het werk, zolang het werk dat nodig heeft.',
       'work.kicker': 'Het werk',
       'work.title': 'Hoe idee tot realisatie er in de praktijk uitziet.',
       'work.lead': 'Dit zijn de projecten die nu op onze tafel liggen. Ze staan hier als bewijs, niet als catalogus; een paar eerlijke voorbeelden van de soort dingen die we bouwen, steunen en over de streep helpen.',
-      'work.s_live': 'Live',
+      'work.s_live': 'In ontwikkeling',
       'work.s_live2': 'Live',
       'work.s_live3': 'Live',
       'work.s_pilot': 'Pilot Andalusi\u00eb',
       'work.s_dev': 'In ontwikkeling',
       'work.s_soto': 'Sotogrande',
-      'work.ccdc_body': 'Verifieert documenten en transacties zodat partijen elkaar kunnen vertrouwen zonder alles zelf te controleren. Voor bedrijven met verplichte controles, en voor particulieren bij een grote aankoop.',
-      'work.re_body': 'De vastgoedvariant van CCDC, voor aan- en verkoop in Spanje. Makelaar, koper, verkoper en advocaten in \u00e9\u00e9n dossier, van het eerste bod tot de escritura.',
+      'vg.ccdc1': 'Offerte getekend',
+      'vg.ccdc2': 'Ingepland',
+      'vg.ccdc3': 'Werkbon loopt',
+      'vg.ccdc4': 'Werkt offline',
+      'vg.re1': 'Eerste bod',
+      'vg.re2': 'Bij de juristen',
+      'vg.re3': 'Escritura',
+      'vg.re4': '4 partijen, 1 dossier',
+      'vg.cio1': 'Informatiemanagement',
+      'vg.cio2': 'Bedrijfsprocessen',
+      'vg.cio3': 'IT-aansturing',
+      'vg.cio4': 'Voor schoolbesturen',
+      'vg.thnx1': 'Object herkend',
+      'vg.thnx2': 'Stap afgehandeld',
+      'vg.io1': 'Evenementen',
+      'vg.bied1': 'Gekocht op veiling',
+      'vg.bied2': 'In de backoffice',
+      'vg.bied3': 'Verkocht',
+      'vg.bied4': 'Ook onderweg',
+      'work.ccdc_body': 'Software voor Nederlandse kozijnbedrijven die de hele keten in \u00e9\u00e9n systeem afhandelt; van lead en verkoopbezoek tot offerte, planning, werkbon, oplevering en facturatie. Backoffice, iPad en telefoon, en het werkt ook offline op de bouwplaats.',
+      'work.re_body': 'E\u00e9n dossier voor aan- en verkoop van vastgoed in Spanje. Makelaar, koper, verkoper en advocaten werken samen, van het eerste bod tot de escritura.',
       'work.cio_body': 'Informatiemanagement, bedrijfsprocesmanagement en IT-aansturing, aangeboden als dienst aan schoolbesturen in het funderend onderwijs. Voor besturen zonder een eigen informatiemanager.',
-      'work.thnx_body': 'Slimme tags voor verloren spullen. De vinder scant, de eigenaar krijgt bericht. Voor scholen en hun gemeenschap, en voor iedereen die zijn spullen terug wil. Het levert ook geld op voor het goede doel of de schoolgemeenschap.',
+      'work.thnx_body': 'Slimme tags die spullen, eigendommen en objecten in het echte leven herkenbaar maken. Bedoeld om te integreren in bestaande systemen, zodat \u00e9\u00e9n scan genoeg is om iets te herkennen of een stap in een proces af te handelen.',
       'work.inout_body': 'Een lokaal media- en eventsplatform dat ondernemers, bewoners en bezoekers in een gebied verbindt, via een gecureerde gids, evenementen en een eigen magazine. De eerste locatie is Sotogrande.',
       'work.bied_body': 'Een backoffice- en mobiliteitsplatform voor autohandelaren, van inkoop op veilingen tot verkoop. Het geeft grip op de hele bedrijfsvoering vanaf \u00e9\u00e9n plek, op kantoor of onderweg.',
       'work.note': 'Verschillende sectoren, dezelfde manier van werken. Elk van deze begon als het idee van iemand en wordt stap voor stap naar iets echts toe gelopen.',
       'record.kicker': 'Hiervoor',
       'record.statement': 'Niets hiervan is een eerste poging. <span class="soft">Eronder ligt een lange aanloop van bouwen.</span>',
+      'record.now': 'Alles op deze pagina',
       'record.p1': 'Voor dit alles bouwden wij een softwareplatform voor de transportopleidingenmarkt in Nederland; twee producten die samen de hele keten bedienden. <strong>Opleidingsplatform.nl</strong> verbond grote uitzendorganisaties en transportbedrijven met de mensen die chauffeurs opleiden.',
       'record.p2': '<strong>Autofox</strong> bediende de andere kant van die markt: de transportopleiders zelf, waaronder de grootste van het land. Bijna twee decennia ondernemerschap, productontwikkeling en groei. Die ervaring zit nu onder alles wat we hier doen.',
       'contact.kicker': 'Even praten',
@@ -371,49 +626,46 @@
       'contact.lead': 'Of het nu een idee op de achterkant van een bierviltje is of een bedrijf dat stilletjes is blijven steken, wij denken graag mee. Geen pitch deck nodig, en nergens toe verplicht; gewoon een gesprek om te kijken of we kunnen helpen.',
       'contact.cta': 'Begin een gesprek',
       'contact.cta2': 'Bekijk eerst het werk',
-      'contact.meta': 'Gevestigd in Nederland en in Sotogrande',
-      'foot.tag': 'Een helpende hand, van idee tot realisatie.',
-      'foot.meta': 'Een Nederlandse ondernemer',
-      'foot.meta2': 'bouwen, steunen en coachen'
+      'contact.meta': 'Gevestigd in Nederland en in Spanje',
+      'foot.tag': 'Een helpende hand, van idee tot realisatie.'
     }
   };
 
-  // Snapshot English markup for toggling back
-  var EN_SNAPSHOT = {};
-  document.querySelectorAll('[data-i18n]').forEach(function (el) {
-    var key = el.dataset.i18n;
-    var all = document.querySelectorAll('[data-i18n="' + key + '"]');
+  const EN_SNAPSHOT = {};
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    const all = document.querySelectorAll('[data-i18n="' + key + '"]');
     EN_SNAPSHOT[key + '|' + Array.from(all).indexOf(el)] = el.innerHTML;
   });
 
   function applyLang(lang) {
     document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var key = el.dataset.i18n;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
       if (lang === 'en') {
-        var all = document.querySelectorAll('[data-i18n="' + key + '"]');
-        var idx = Array.from(all).indexOf(el);
-        var snap = EN_SNAPSHOT[key + '|' + idx];
+        const all = document.querySelectorAll('[data-i18n="' + key + '"]');
+        const idx = Array.from(all).indexOf(el);
+        const snap = EN_SNAPSHOT[key + '|' + idx];
         if (snap !== undefined) el.innerHTML = snap;
       } else if (I18N[lang] && I18N[lang][key] !== undefined) {
         el.innerHTML = I18N[lang][key];
       }
     });
-    document.querySelectorAll('.lang button').forEach(function (b) {
+    document.querySelectorAll('.lang button').forEach(b => {
       b.classList.toggle('is-active', b.dataset.lang === lang);
     });
     if (window.lucide) window.lucide.createIcons();
     window.__currentLang = lang;
     resetOneliner();
+    if (window.__renderJourney) window.__renderJourney();
   }
-
-  document.querySelectorAll('.lang button').forEach(function (b) {
-    b.addEventListener('click', function () { applyLang(b.dataset.lang); });
+  document.querySelectorAll('.lang button').forEach(b => {
+    b.addEventListener('click', () => applyLang(b.dataset.lang));
   });
   window.__currentLang = 'en';
 
-  // rotating oneliner
-  var LINES = {
+  // ─── rotating oneliner (v1 mechanism) ────────────────────────────────
+  const LINES = {
     en: [
       ['help the builders', 'build'],
       ['back the doers', 'do'],
@@ -429,39 +681,36 @@
       ['op de details letten', 'beslissen']
     ]
   };
-  var lineIdx = 0;
-  var lineTimer = null;
-  var root = document.getElementById('oneliner');
-  var fillA = document.getElementById('fillA');
-  var fillB = document.getElementById('fillB');
+  let lineIdx = 0;
+  let lineTimer = null;
+  const olRoot = document.getElementById('oneliner');
+  const fillA = document.getElementById('fillA');
+  const fillB = document.getElementById('fillB');
 
   function paint() {
-    var pair = LINES[window.__currentLang][lineIdx];
+    const pair = LINES[window.__currentLang][lineIdx];
     fillA.innerHTML = '<em>' + pair[0] + '</em>';
     fillB.innerHTML = '<em>' + pair[1] + '</em>';
   }
   function tickLine() {
-    if (!root) return;
-    root.classList.add('is-fading');
-    setTimeout(function () {
+    if (!olRoot) return;
+    olRoot.classList.add('is-fading');
+    setTimeout(() => {
       lineIdx = (lineIdx + 1) % LINES[window.__currentLang].length;
       paint();
-      root.classList.remove('is-fading');
+      olRoot.classList.remove('is-fading');
     }, 300);
   }
-  function startCycle() {
-    stopCycle();
-    lineTimer = setInterval(tickLine, 2200);
-  }
-  function stopCycle() {
-    if (lineTimer) { clearInterval(lineTimer); lineTimer = null; }
-  }
+  function startCycle() { stopCycle(); lineTimer = setInterval(tickLine, window.__cycleMs || 2200); }
+  function stopCycle() { if (lineTimer) { clearInterval(lineTimer); lineTimer = null; } }
   function resetOneliner() {
-    if (!root) return;
+    if (!olRoot) return;
     lineIdx = 0;
     paint();
-    startCycle();
+    if (window.__cycleOn !== false) startCycle();
   }
+  window.__cycleOn = true;
+  window.__cycleMs = 2300;
   paint();
   startCycle();
 </script>
