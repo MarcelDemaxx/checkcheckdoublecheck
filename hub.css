@@ -62,6 +62,19 @@ body {
   transition: color 150ms;
 }
 .nav-links a:hover { color: #fff; }
+.nav-links a.nav-login {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font: 600 12px/1 var(--font-sans);
+  color: rgba(255, 255, 255, 0.72);
+  transition: background 150ms, color 150ms;
+}
+.nav-links a.nav-login:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
 .lang {
   display: inline-flex; gap: 0;
   background: rgba(255, 255, 255, 0.06);
@@ -83,7 +96,7 @@ body {
   color: #fff;
 }
 @media (max-width: 760px) {
-  .nav-links a:not(.lang-wrap) { display: none; }
+  .nav-links a:not(.lang-wrap):not(.nav-login) { display: none; }
 }
 
 /* ─── hero ────────────────────────────────────────────────────────────── */
