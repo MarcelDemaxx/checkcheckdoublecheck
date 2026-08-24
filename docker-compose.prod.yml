@@ -25,7 +25,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=ccdc_ccdc
-      - traefik.http.routers.scopecheck.rule=Host(`checkcheckdoublecheck.com`) || Host(`www.checkcheckdoublecheck.com`) || Host(`ccdc.es`)
+      - traefik.http.routers.scopecheck.rule=Host(`checkcheckdoublecheck.com`) || Host(`www.checkcheckdoublecheck.com`) || Host(`ccdc.es`) || Host(`ccdc.nl`) || Host(`www.ccdc.nl`)
       - traefik.http.routers.scopecheck.entrypoints=websecure
       - traefik.http.routers.scopecheck.tls.certresolver=le
       - traefik.http.services.scopecheck.loadbalancer.server.port=8090
