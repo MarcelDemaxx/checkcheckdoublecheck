@@ -173,6 +173,7 @@ app.get("/colors_and_type.css", (req, res) => res.sendFile(path.join(ROOT, "colo
 app.get("/hub.css", (req, res) => res.sendFile(path.join(ROOT, "hub.css")));
 app.get("/hub-v3.css", (req, res) => res.sendFile(path.join(ROOT, "hub-v3.css")));
 app.get("/favicon.svg", (req, res) => res.sendFile(path.join(ROOT, "favicon.svg")));
+app.get("/homecare-scope-check.html", (req, res) => res.sendFile(path.join(ROOT, "homecare-scope-check.html")));
 
 // --- Form: GET --------------------------------------------------------------
 app.get("/f/:token", (req, res) => {

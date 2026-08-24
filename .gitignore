@@ -7,6 +7,7 @@
 # Scope-check app: secrets and stored answers — never commit these
 node_modules/
 config.json
+.env
 data/
 *.tmp
 docs/
