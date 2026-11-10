@@ -166,7 +166,7 @@ h1.hero-title {
   line-height: 1.02;
   letter-spacing: -0.04em;
   color: var(--ink);
-  margin: 28px auto 0;
+  margin: 0 auto;
   max-width: 20ch;
   text-wrap: balance;
 }
@@ -235,12 +235,6 @@ h1.hero-title {
 }
 
 /* ─── what we do: three cards ─────────────────────────────────────────── */
-.roles-coda {
-  margin: 18px auto 0;
-  font-size: 16px; font-weight: 500;
-  color: var(--ink);
-}
-.roles-coda .dot { display: none; }
 .roles-rail {
   margin-top: 60px;
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
@@ -334,26 +328,6 @@ h1.hero-title {
   .how-step { padding: 0 0 0 34px; }
   .how-step .dot { top: 5px; }
 }
-.how-quote {
-  margin-top: 68px;
-  padding: 26px 30px;
-  border-radius: 20px;
-  border: 1px dashed rgba(255, 255, 255, 0.24);
-  display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
-}
-.how-quote .q-mark {
-  font: 600 11px/1 var(--font-sans);
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: #FF8CC4;
-  white-space: nowrap;
-}
-.how-quote p {
-  flex: 1; min-width: 240px;
-  font: 400 clamp(17px, 1.6vw, 21px)/1.4 var(--font-sans);
-  letter-spacing: -0.01em;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-}
 
 /* ─── contact: continues the dark block ─────────────────────────────────── */
 .closing {
@@ -407,7 +381,6 @@ footer { padding: 44px 0 52px; }
 .foot-links a:hover { color: var(--ink); }
 .foot-brand { display: inline-flex; align-items: center; gap: 12px; }
 .foot-brand img { width: 24px; height: 24px; display: block; }
-.foot-tag { font-size: 14px; color: var(--ink-soft); }
 
 /* ─── scroll reveal ───────────────────────────────────────────────────── */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 600ms ease, transform 600ms ease; }
