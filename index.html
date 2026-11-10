@@ -301,6 +301,13 @@
   });
   window.__currentLang = 'en';
 
+  // ─── start language by domain ─────────────────────────────────────────
+  // ccdc.nl (and www.ccdc.nl) opens in Dutch; every other domain in English.
+  function defaultLang(host) {
+    return /(^|\.)ccdc\.nl$/i.test(host) ? 'nl' : 'en';
+  }
+  if (defaultLang(location.hostname) === 'nl') applyLang('nl');
+
 </script>
 
 </body>
