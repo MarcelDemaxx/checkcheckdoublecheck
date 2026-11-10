@@ -170,8 +170,7 @@ app.use("/fonts", express.static(path.join(ROOT, "fonts")));
 app.get("/", (req, res) => res.sendFile(path.join(ROOT, "index.html")));
 app.get("/styles.css", (req, res) => res.sendFile(path.join(ROOT, "styles.css")));
 app.get("/colors_and_type.css", (req, res) => res.sendFile(path.join(ROOT, "colors_and_type.css")));
-app.get("/hub.css", (req, res) => res.sendFile(path.join(ROOT, "hub.css")));
-app.get("/hub-v3.css", (req, res) => res.sendFile(path.join(ROOT, "hub-v3.css")));
+app.get("/site.css", (req, res) => res.sendFile(path.join(ROOT, "site.css")));
 app.get("/favicon.svg", (req, res) => res.sendFile(path.join(ROOT, "favicon.svg")));
 app.get("/homecare-scope-check.html", (req, res) => res.sendFile(path.join(ROOT, "homecare-scope-check.html")));
 
